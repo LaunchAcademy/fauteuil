@@ -44,6 +44,7 @@ group :development, :test do
 	gem 'launchy'
 	gem 'pry-rails'
 	gem 'rspec-rails'
+  gem 'valid_attribute'
 end
 
 # Use ActiveModel has_secure_password
