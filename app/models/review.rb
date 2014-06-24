@@ -5,5 +5,14 @@ class Review < ActiveRecord::Base
 
  validates_presence_of :body
  #todo validating the range and the step increment
- validates_presence_of :rating
+ validates :rating,
+  presence: true,
+  inclusion: { in: 1..5 }
+  validate :rating_is_valid_increment
+end
+
+def rating_is_valid_increment
+  unless rating % 0.5 == 0
+    errors.add(:rating, "must be in increments of 0.5 only.")
+  end
 end
