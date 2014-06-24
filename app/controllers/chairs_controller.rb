@@ -26,5 +26,4 @@ class ChairsController < ApplicationController
   def chair_params
     params.require(:chair).permit(:name, :description, :manufacturer, :location, :picture, :category_id, :user_id)
   end
-
 end
