@@ -40,6 +40,7 @@ gem 'kaminari'
 
 group :development, :test do
 	gem 'capybara'
+  gem 'valid_attribute'
   gem 'shoulda-matchers'
 	gem 'factory_girl_rails'
 	gem 'launchy'
