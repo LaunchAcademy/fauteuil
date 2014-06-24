@@ -29,7 +29,7 @@ feature 'guest signup' do
     click_button 'Sign in'
 
 
-    expect(page).to have_content('Register or Sign in Invalid email or password. Sign in Email Password Remember me Sign up Forgot your password?')
+    expect(page).to have_content('Invalid email or password')
 
   end
 
