@@ -4,18 +4,25 @@
 
 <%= devise_error_messages! %>
 
-<%= f.label :username %><br />
-<%= f.text_field :username%>
+<div>
+  <%= f.label :username %><br />
+  <%= f.text_field :username%>
+</div>
 
-<%= f.label :email %><br />
-<%= f.email_field :email, autofocus: true %>
+<div>
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %>
+</div>
 
-<%= f.label :password %><br />
-<%= f.password_field :password, autocomplete: "off" %>
+<div>
+  <%= f.label :password %><br />
+  <%= f.password_field :password, autocomplete: "off" %>
+</div>
 
-<%= f.label :password_confirmation %><br />
-
-<%= f.password_field :password_confirmation, autocomplete: "off" %>
+<div>
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+</div>
 
 <%= f.submit "Sign up" %>
 <% end %>
