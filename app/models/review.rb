@@ -5,8 +5,6 @@ class Review < ActiveRecord::Base
 
   validate :body, presence: true
 
-  #todo validating the range and the step increment
-
   validates_numericality_of :rating, greater_than_or_equal_to: 0.0, less_than_or_equal_to: 5.0
 
   validate :rating_is_valid_increment
