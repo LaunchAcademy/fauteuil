@@ -1,0 +1,12 @@
+<h1>
+  <em> Fauteuil's </em> Selection of Chairs
+</h1>
+
+<ul>
+  <% @chairs.each do |chair| %>
+    <li> <%= chair.name %> || <%= chair.location %> ||
+         <%= chair.picture %> || <%= link_to "==>", chair_path(chair.id)%> </li>
+  <% end %>
+</ul>
+
+<%= link_to "My Turn to Add a Chair", new_chair_path %>

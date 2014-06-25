@@ -1,0 +1,27 @@
+<h2>
+  <em>
+    <%= @chair.name %>
+  </em>
+</h2>
+
+<p>
+  <strong>Location: </strong>
+  <%= @chair.location %>
+</p>
+
+<p>
+  <strong>Manufacturer: </strong>
+  <%= @chair.manufacturer %>
+</p>
+
+<p>
+  <strong>Category: </strong>
+  <%= @chair.category.name %>
+</p>
+
+<p>
+  <strong>Description: </strong>
+  <%= @chair.description %>
+</p>
+
+<%= link_to "H O M E", chairs_path %>

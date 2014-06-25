@@ -1,5 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Chair, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Chair do
+  it { should belong_to(:category) }
+
+  it { should validate_uniqueness_of(:name) }
+
+  it { should have_valid(:name).when('office chair', 'chair', 'long chair', 'stool') }
+  it { should_not have_valid(:name).when(nil, '') }
+
+  it { should have_valid(:location).when('Boston', 'Launch Academy', 'floor') }
+  it { should_not have_valid(:location).when(nil, '') }
 end
