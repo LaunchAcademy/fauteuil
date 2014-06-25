@@ -13,7 +13,7 @@ feature 'guest registers' do
     fill_in 'Password confirmation', with: '12345678'
     click_button 'Sign up'
 
-    expect(page).to have_content('You have signed up successfully.'
+    expect(page).to have_content('You have signed up successfully.')
   end
 
 end
