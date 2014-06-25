@@ -24,6 +24,33 @@
   <%= @chair.description %>
 </p>
   </div>
+  <div class="medium-4 columns panel callout">
+  <h3>Add Your Review</h3>
+    <%= form_for([@chair, @review]) do |f| %>
+
+      <% if @review.errors.any? %>
+
+        <p id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </p>
+
+      <% end %>
+
+        <%= f.label :rating %>
+        <%= f.range_field(:rating, in: 1.0..5.0, step: 0.5, onchange: "outputUpdate(value)") %>
+        <output for="review_rating" id="rating_show"></output>
+        <%= f.label(:body, "Review") %>
+        <%= f.text_area :body %>
+        <%= f.submit(class: "button") %>
+
+    <% end %>
+  </div>
 </div>
 <div class="row">
   <div class="medium-4 columns">
@@ -32,9 +59,6 @@
 
   </div>
 </div>
-
---
-
 <% @chair.reviews.each do |review| %>
   <div class="row panel">
     <div class="medium-10 columns">
@@ -57,27 +81,3 @@
   </div>
  <% end %>
 
-<div class="row">
-    <%= form_for([@chair, @review]) do |f| %>
-
-      <% if @review.errors.any? %>
-
-        <p id="error_explanation">
-          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-          <ul>
-          <% @review.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </p>
-
-      <% end %>
-        <%= f.label :rating %>
-        <%= f.range_field(:rating, in: 1.0..5.0, step: 0.5, onchange: "outputUpdate(value)") %>
-        <output for="review_rating" id="rating_show"></output>
-        <%= f.label(:body, "Review") %>
-        <%= f.text_area :body %>
-        <%= f.submit %>
-    <% end %>
-</div>
