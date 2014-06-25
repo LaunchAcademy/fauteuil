@@ -20,6 +20,7 @@ feature 'user adds a chair',%q(
     category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
 
+    login_as(user)
     visit '/chairs/new'
 
     fill_in "Name", with: "Bean Bag"
