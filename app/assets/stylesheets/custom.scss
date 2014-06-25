@@ -1,0 +1,16 @@
+.chair {
+  background: url(ikea_chairs.jpg) 50% 0 no-repeat fixed;
+  min-height: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  position: relative;
+
+  .chair-focus {
+    background: white;
+    height: 500px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+}
+

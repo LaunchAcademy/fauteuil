@@ -1,12 +1,41 @@
-<h1>
-  <em> Fauteuil's </em> Selection of Chairs
-</h1>
+<div class="row">
+  <div class="small-8 large-centered columns">
+    <h1>Fauteuil's Selection of Chairs</h1>
+  </div>
+</div>
 
-<ul>
   <% @chairs.each do |chair| %>
-    <li> <%= chair.name %> || <%= chair.location %> ||
-         <%= chair.picture %> || <%= link_to "==>", chair_path(chair.id)%> </li>
-  <% end %>
-</ul>
+    <div class="row chair" data-type="background" id="<%=chair.id%>">
+      <article class="chair-focus">
+        <%= chair.picture %>
+        <%= link_to chair.name, chair_path(chair.id)%>
+        Location: <%= chair.location %>
 
-<%= link_to "My Turn to Add a Chair", new_chair_path %>
+      </article>
+    </div>
+  <% end %>
+
+<div class="row">
+  <%= link_to "My Turn to Add a Chair", new_chair_path %>
+</div>
+
+<script>
+  $(document).ready(function(){
+
+      document.createElement("article");
+
+    $('div[data-type="background"]').each(function(){
+      var $bgobj = $(this);
+
+      $(window).scroll(function(){
+        var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+
+        var coords = '50%' + yPos + 'px';
+
+        $bgobj.css({ backgroundPosition: coords });
+      });
+
+    });
+
+  });
+</script>

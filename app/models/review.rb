@@ -15,5 +15,16 @@ class Review < ActiveRecord::Base
     end
   end
 
+  def upvote
+    @review.find(params[:id])
+    @review.votes.create(like: 1)
+    redirect_to chair_path(@review.chair_id)
+  end
+
+  def upvote
+    @review.find(params[:id])
+    @review.votes.create(like: -1)
+    redirect_to chair_path(@review.chair_id)
+  end
 end
 

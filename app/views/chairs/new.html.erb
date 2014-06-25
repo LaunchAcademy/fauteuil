@@ -11,24 +11,39 @@
 
 <%= form_for @chair do |f| %>
 
-  <%= f.label :name %>:
-  <%= f.text_field :name ,placeholder: "e.g. stool" %><br>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :name %>
+      <%= f.text_field :name ,placeholder: "e.g. stool" %>
+    </div>
+  </div>
 
-  <%= f.label :manufacturer %>:
-  <%= f.text_field :manufacturer,placeholder: "e.g. Ikea" %><br>
+   <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :manufacturer %>
+      <%= f.text_field :manufacturer,placeholder: "e.g. Ikea" %>
+ </div>
+  </div>
 
-  <%= f.label :location %>:
-  <%= f.text_field :location,placeholder:"where you found this chair" %><br>
+ <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :location %>
+      <%= f.text_field :location,placeholder:"where you found this chair" %>
+   </div>
+  </div>
+ <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :description %>
+      <%= f.text_area :description, placeholder: "e.g. Amazing back support,
+      blends in with my red curtains, etc..." %>
+   </div>
+  </div>
+ <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :category %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name)%>
+      <%= f.submit 'Add Chair', :class => 'button tiny' %>
+    </div>
+  </div>
+  <% end %>
 
-
-  <%= f.label :description %>:
-  <%= f.text_area :description, placeholder: "e.g. Amazing back support,
-  blends in with my red curtains, etc..." %><br>
-
-  <%= f.label :category %>:
-  <%= f.collection_select(:category_id, Category.all, :id, :name)%><br> <br>
-
-  <%= f.submit "Add Chair" %>
-<% end %>
-<br>
-<%= link_to "H O M E", chairs_path%>

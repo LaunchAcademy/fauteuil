@@ -1,9 +1,33 @@
-<h2>
-  <em>
-    <%= @chair.name %>
-  </em>
-</h2>
+<div class="row">
+  <div class="medium-8 columns">
+    <h2>
+      <%= @chair.name %>
+    </h2>
+  </div>
+  <div class="medium-4 columns">
+    <%= form_for([@chair, @review]) do |f| %>
 
+      <% if @review.errors.any? %>
+
+        <p id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </p>
+
+      <% end %>
+        <%= f.label :rating %>
+        <%= f.range_field(:rating, in: 1.0..5.0, step: 0.5, onchange: "outputUpdate(value)") %>
+        <output for="review_rating" id="rating_show"></output>
+        <%= f.label(:body, "Review") %>
+        <%= f.text_area :body %>
+        <%= f.submit %>
+    <% end %>
+</div>
 <p>
   <strong>Location: </strong>
   <%= @chair.location %>
@@ -24,48 +48,32 @@
   <%= @chair.description %>
 </p>
 
-<h1>Reviews</h1>
-
-<%= form_for([@chair, @review]) do |f| %>
-
-  <% if @review.errors.any? %>
-
-    <p id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-      <% @review.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </p>
-
-  <% end %>
-
-<p>
-  <%= f.label :rating %>
-  <%= f.select :rating, (1..5) %>
-</p>
-<p>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-</p>
-
-  <%= f.submit %>
-
-<% end %>
+<h2>Reviews</h2>
 
 
+--
+<br >
 <% @chair.reviews.each do |review| %>
-  <div>
-    <p data-score="<%= review.rating %>"></p>
+  <div class="row">
+    <p class="rating"><%= review.rating %></p>
     <p>
       <%= review.body %>
     </p>
     <p>
       <em><%= review.created_at.time.to_formatted_s(:short)  %></em>
     </p>
+    <p>
+      <%= pluralize(review.votes.count(conditions: "value = 1"), "upvotes") %>
+      <%= pluralize(review.votes.count(conditions: "value = -1"), "downvotes") %>
+      <%= button_to '+1', upvote_review_path(review), method: :post %>
+      <%= button_to '-1', downvote_review_path(review), method: :post %>
   </div>
-  <% end %>
 
+ <% end %>
 <%= link_to "H O M E", chairs_path %>
+
+<script>
+function outputUpdate(vol) {
+document.querySelector('#rating_show').value = vol;
+}
+</script>
