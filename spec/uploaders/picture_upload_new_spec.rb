@@ -6,7 +6,7 @@ feature 'user visits chairs new page to add a photo of a chair' do
 
     visit '/chairs/new'
 
-    attach_file "picture", "spec/fixtures/avatar.jpeg"
+    attach_file('picture', 'spec/fixtures/avatar.jpeg')
 
     click_button 'Add Chair'
 
