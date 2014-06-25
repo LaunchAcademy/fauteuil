@@ -169,7 +169,8 @@ I want to be able to see the specifics of a chair so that I can see its info and
 **Add a review to a chair**
 
 As a user
-I want to be able to add a review so i can give my opinion on that chair
+~~I want to be able to add a review ~~
+~~so i can give my opinion on that chair~~
 
 **Acceptance Criteria**
 
