@@ -35,6 +35,7 @@ end
 gem 'devise'
 
 gem 'carrierwave'
+gem "rmagick"
 
 gem 'kaminari'
 
@@ -42,8 +43,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'valid_attribute'
 	gem 'capybara'
-  gem 'valid_attribute'
-  gem 'shoulda-matchers'
 	gem 'factory_girl_rails'
 	gem 'launchy'
 	gem 'pry-rails'
