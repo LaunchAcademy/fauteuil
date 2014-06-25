@@ -3,6 +3,7 @@
 <%= form_for([@chair, @review]) do |f| %>
 
   <% if @review.errors.any? %>
+
     <p id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
 
@@ -12,6 +13,7 @@
       <% end %>
       </ul>
     </p>
+
   <% end %>
 
 <p>
@@ -22,6 +24,7 @@
   <%= f.label :body %>
   <%= f.text_area :body %>
 </p>
+
   <%= f.submit %>
 
 <% end %>
