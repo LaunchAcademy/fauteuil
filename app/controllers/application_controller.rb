@@ -6,9 +6,12 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :role, :email, :password, :password_confirmation) } # The :firstname and :lastname are my custom fields.
-    # devise_parameter_sanitizer.for(:sign_up) << :username, :role
+  devise_parameter_sanitizer.for(:sign_up) do |u|
+    u.permit(:username, :role, :email,
+      :password, :password_confirmation)
+    end
   end
-
   before_action :authenticate_user!
 end
+
+

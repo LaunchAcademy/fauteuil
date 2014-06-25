@@ -9,25 +9,24 @@
 <body>
 
   <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-    <% if user_signed_in? %>
+    <div class="navbar-inner">
+      <div class="container">
+        <% if user_signed_in? %>
         Signed in as <%= current_user.email %>
         <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
+        <% else %>
         <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
-    <% end %>
-
-        </div>
+        <% end %>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-      <div class="back-app">
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
