@@ -15,10 +15,13 @@ class ChairsController < ApplicationController
 
   def create
     @chair = Chair.new(chair_params)
+
     if @chair.save
-      redirect_to @chair, notice: 'Chair was successfully created.'
+      flash[:notice] = "Success!"
+      redirect_to '/chairs'
     else
-      render action: 'new'
+      flash.now[:notice] = "Your restaurant couldn't be saved."
+      render :new
     end
   end
 
