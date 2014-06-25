@@ -1,6 +1,6 @@
 class ChairsController < ApplicationController
   def index
-    @chairs = Chair.all.limit(25)
+    @chairs = Chair.limit(25)
   end
 
   def show
@@ -14,7 +14,6 @@ class ChairsController < ApplicationController
 
   def create
     @chair = Chair.new(chair_params)
-    #binding.pry
     if @chair.save
       redirect_to @chair, notice: 'Chair was successfully created.'
     else
