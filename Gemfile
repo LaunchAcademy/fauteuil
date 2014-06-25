@@ -35,6 +35,7 @@ end
 gem 'devise'
 
 gem 'carrierwave'
+gem 'rmagick'
 
 gem 'kaminari'
 
