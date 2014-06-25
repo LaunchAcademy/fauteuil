@@ -25,6 +25,7 @@ feature 'user adds review' do
     expect(page).to have_content 'Chair was successfully created.'
     expect(page).to have_content 'Great chair'
     expect(page).to have_content '5'
+
   end
 
 end

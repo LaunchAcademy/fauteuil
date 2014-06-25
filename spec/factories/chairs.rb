@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :chair do
+
     sequence(:name) { |n| "svaar #{n}" }
     description "swedish chair"
     manufacturer "Ikea"
@@ -10,5 +11,6 @@ FactoryGirl.define do
 
     category
     user
+
   end
 end

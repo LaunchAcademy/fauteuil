@@ -6,6 +6,7 @@ class Review < ActiveRecord::Base
  validate :body, presence: true
 
  #todo validating the range and the step increment
+
 validate :rating, presence: true
 validate :rating, inclusion: { in: 1..5 }
   # validate :rating_is_valid_increment
