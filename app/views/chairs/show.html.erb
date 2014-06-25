@@ -3,8 +3,61 @@
     <h2>
       <%= @chair.name %>
     </h2>
+
+    <p>
+  <strong>Location: </strong>
+  <%= @chair.location %>
+</p>
+
+<p>
+  <strong>Manufacturer: </strong>
+  <%= @chair.manufacturer %>
+</p>
+
+<p>
+  <strong>Category: </strong>
+<!-- Add Category Name -->
+</p>
+
+<p>
+  <strong>Description: </strong>
+  <%= @chair.description %>
+</p>
   </div>
+</div>
+<div class="row">
   <div class="medium-4 columns">
+
+  <h2>Reviews</h2>
+
+  </div>
+</div>
+
+--
+
+<% @chair.reviews.each do |review| %>
+  <div class="row panel">
+    <div class="medium-10 columns">
+      <p class="rating">
+        <strong>Rating:</strong> <%= review.rating %>
+      </p>
+      <p>
+        <strong>Review:</strong> <%= review.body %>
+      </p>
+      <p>
+        <em><%= review.created_at.time.to_formatted_s(:short)  %></em>
+      </p>
+    </div>
+    <div class="medium-2 columns">
+      <%= pluralize(review.votes.count(conditions: "value = 1"), "upvotes") %>
+      <%= button_to 'Vote +1', upvote_review_path(review), method: :post, class: "button tiny" %>
+      <%= pluralize(review.votes.count(conditions: "value = -1"), "downvotes") %>
+      <%= button_to 'Vote -1', downvote_review_path(review), method: :post, class: "button alert tiny" %>
+    </div>
+  </div>
+ <% end %>
+
+<div class="row">
     <%= form_for([@chair, @review]) do |f| %>
 
       <% if @review.errors.any? %>
@@ -28,52 +81,3 @@
         <%= f.submit %>
     <% end %>
 </div>
-<p>
-  <strong>Location: </strong>
-  <%= @chair.location %>
-</p>
-
-<p>
-  <strong>Manufacturer: </strong>
-  <%= @chair.manufacturer %>
-</p>
-
-<p>
-  <strong>Category: </strong>
-<!-- Add Category Name -->
-</p>
-
-<p>
-  <strong>Description: </strong>
-  <%= @chair.description %>
-</p>
-
-<h2>Reviews</h2>
-
-
---
-<br >
-<% @chair.reviews.each do |review| %>
-  <div class="row">
-    <p class="rating"><%= review.rating %></p>
-    <p>
-      <%= review.body %>
-    </p>
-    <p>
-      <em><%= review.created_at.time.to_formatted_s(:short)  %></em>
-    </p>
-    <p>
-      <%= pluralize(review.votes.count(conditions: "value = 1"), "upvotes") %>
-      <%= pluralize(review.votes.count(conditions: "value = -1"), "downvotes") %>
-      <%= button_to '+1', upvote_review_path(review), method: :post %>
-      <%= button_to '-1', downvote_review_path(review), method: :post %>
-  </div>
-
- <% end %>
-<%= link_to "H O M E", chairs_path %>
-
-<script>
-function outputUpdate(vol) {
-document.querySelector('#rating_show').value = vol;
-}
-</script>

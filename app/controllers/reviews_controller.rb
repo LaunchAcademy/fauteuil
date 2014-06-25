@@ -27,13 +27,13 @@ class ReviewsController < ApplicationController
 
   def upvote
     @review = Review.find(params[:id])
-    @review.votes.create(like: 1, user_id: current_user.id)
+    @review.votes.create(value: 1, user_id: current_user.id)
     redirect_to chair_path(@review.chair_id)
   end
 
   def downvote
     @review = Review.find(params[:id])
-    @review.votes.create(like: -1, user_id: current_user.id)
+    @review.votes.create(value: -1, user_id: current_user.id)
     redirect_to chair_path(@review.chair_id)
   end
 end
