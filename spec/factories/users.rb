@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
-    sequence(:username) { |n| "generic username  #{n}" }
-    password "hello"
-    sequence(:email) { |n| "generic email  #{n}" }
+    sequence(:username) { |n| "generic username #{n}" }
+    password "password"
+    sequence(:email) { |n| "someone#{n}@example.com" }
     picture "this is an url to image"
     role "user"
   end

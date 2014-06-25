@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user views restaurants', %q(
+feature 'user views chairs', %q(
   As a user I want to be able to see all the previous posts so that
   I can know what chairs are outhere
 
@@ -17,6 +17,9 @@ feature 'user views restaurants', %q(
 
   scenario 'view list of chairs' do
     chairs = FactoryGirl.create_list(:chair, 6)
+
+    user = FactoryGirl.create(:user)
+    login_as(user)
 
     visit chairs_path
 
