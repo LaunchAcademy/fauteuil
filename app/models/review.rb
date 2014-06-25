@@ -8,13 +8,13 @@ class Review < ActiveRecord::Base
  validates :rating,
   presence: true,
   inclusion: { in: 1..5 }
-  validate :rating_is_valid_increment
+  # validate :rating_is_valid_increment
 
-def rating_is_valid_increment
-  unless rating % 0.5 == 0
-    errors.add(:rating, "must be in increments of 0.5 only.")
-  end
-end
+# def rating_is_valid_increment
+#   unless rating % 0.5 == 0
+#     errors.add(:rating, "must be in increments of 0.5 only.")
+#   end
+# end
 
 end
 

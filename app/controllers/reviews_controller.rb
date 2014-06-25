@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review.chair = @chair
 
     if @review.save
-      redirect_to "/chairs/#{@chair.id}"
+      redirect_to "/chairs/#{@chair.id}", notice: 'Chair was successfully created.'
     else
       render action: 'new'
     end

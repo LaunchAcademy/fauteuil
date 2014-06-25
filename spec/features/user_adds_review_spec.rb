@@ -12,17 +12,19 @@ feature 'user adds review' do
   scenario 'fill out review' do
 
     chair = FactoryGirl.create(:chair)
+    user = FactoryGirl.create(:user)
 
+    login_as(user)
     visit new_chair_review_path(chair.id)
 
 
-    fill_in 'Body', with: 'Great chair1'
+    fill_in 'Body', with: 'Great chair'
     select '5', :from => 'Rating'
     click_button 'Create Review'
 
-    expect(page).to have_content 'Success'
-    expect(page).to have_content review.body
-    expect(page).to have_content review.rating
+    expect(page).to have_content 'Chair was successfully created.'
+    expect(page).to have_content 'Great chair'
+    expect(page).to have_content '5'
   end
 
 end

@@ -16,12 +16,56 @@
 
 <p>
   <strong>Category: </strong>
-  <%= @chair.category.name %>
+<!-- Add Category Name -->
 </p>
 
 <p>
   <strong>Description: </strong>
   <%= @chair.description %>
 </p>
+
+<h1>Reviews</h1>
+
+<%= form_for([@chair, @review]) do |f| %>
+
+  <% if @review.errors.any? %>
+
+    <p id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </p>
+
+  <% end %>
+
+<p>
+  <%= f.label :rating %>
+  <%= f.select :rating, (1..5) %>
+</p>
+<p>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+</p>
+
+  <%= f.submit %>
+
+<% end %>
+
+
+<% @chair.reviews.each do |review| %>
+  <div>
+    <p data-score="<%= review.rating %>"></p>
+    <p>
+      <%= review.body %>
+    </p>
+    <p>
+      <em><%= review.created_at.time.to_formatted_s(:short)  %></em>
+    </p>
+  </div>
+  <% end %>
 
 <%= link_to "H O M E", chairs_path %>
