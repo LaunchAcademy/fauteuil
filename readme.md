@@ -73,7 +73,7 @@ so I can update my information if I am not satisfied
 I can see my current information and a form to edit that information
 - All fields (inclduing picture) should be editable.
 - If I succesfully edit my information, the page is re-rendered with updated info
-- I shoudl be able to go back to homepage
+- I should be able to go back to homepage
 
 
 ---
