@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Vote, :type => :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_valid(:like).when(-1,0,1) }
+
+  it { should_not have_valid(:like).when(-5,10)}
 end

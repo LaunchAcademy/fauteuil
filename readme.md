@@ -169,15 +169,16 @@ I want to be able to see the specifics of a chair so that I can see its info and
 **Add a review to a chair**
 
 As a user
-I want to be able to add a review so i can give my opinion on that chair
+~~I want to be able to add a review ~~
+~~so i can give my opinion on that chair~~
 
 **Acceptance Criteria**
 
 - Check if user has already added a review!
 - On the show page of  a chair I have access to a form where I can submit my review
 - Everytime a review is added to a chair, the creator of that page is notified by email
-- I should be able to rank the chair between 1 to 5. That integer will be converted to a star value
-- When my review is succesfully added I am redirected to the show page of the chair I just reviewed
+- ~~I should be able to rank the chair between 1 to 5.~~ That integer will be converted to a star value
+- ~~When my review is succesfully added I am redirected to the show page of the chair I just reviewed~~
 
 ---
 
