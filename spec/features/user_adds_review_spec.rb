@@ -19,7 +19,7 @@ feature 'user adds review' do
 
 
     fill_in 'Body', with: 'Great chair'
-    select '5', :from => 'Rating'
+    select '5', from: 'Rating'
     click_button 'Create Review'
 
     expect(page).to have_content 'Chair was successfully created.'

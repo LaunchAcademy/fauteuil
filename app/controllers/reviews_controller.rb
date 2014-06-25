@@ -11,13 +11,13 @@ class ReviewsController < ApplicationController
 
     @review = Review.new(review_params)
 
-    @review.user_id = 0 # replace with session[:user_id]
+    @review.user_id = current_user.id
     @review.chair = @chair
 
     if @review.save
-      redirect_to "/chairs/#{@chair.id}", notice: 'Chair was successfully created.'
+      redirect_to @chair, notice: 'Chair was successfully created.'
     else
-      render action: 'new'
+      render :new
     end
   end
 
