@@ -15,13 +15,14 @@ feature 'user adds review' do
 
     visit new_chair_review_path(chair.id)
 
-    fill_in 'Body', with: 'This is a review for a chair.'
-    fill_in 'Rating', with: 5
+
+    fill_in 'Body', with: 'Great chair1'
+    select '5', :from => 'Rating'
     click_button 'Create Review'
 
     expect(page).to have_content 'Success'
-    expect(page).to have_content 'This is a review for a chair.'
-    expect(page).to have_content '5'
+    expect(page).to have_content review.body
+    expect(page).to have_content review.rating
   end
 
 end
