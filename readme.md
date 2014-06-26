@@ -16,12 +16,12 @@ so I can have access to the website
 
 __**Acceptance Criteria**__
 
-- To sign up, I have to provide a username (check if available),
-- an email (check if available),
+- X To sign up, I have to provide a username (check if available),
+- X an email (check if available),
 - upload a picture(optional, if no picture use default),
-- create a password and confirm it.
-- After I am signed up, I am redirected to index of chairs.
-- I should be noticed if info is wrong and if sign up has succeeded.
+- X create a password and confirm it.
+- X After I am signed up, I am redirected to index of chairs.
+- X I should be noticed if info is wrong and if sign up has succeeded.
 
 ---
 
@@ -35,9 +35,9 @@ so I can have access to the website and navigate through it with my credentials
 
 **Acceptance Criteria**
 
-- To sign in, I have to provide my email and password combination.
-- After I sign in, I am redirected to index of chairs.
-- If sign in fails, user is prompted
+- X To sign in, I have to provide my email and password combination.
+- X After I sign in, I am redirected to index of chairs.
+- X If sign in fails, user is prompted
 
 ---
 
@@ -51,10 +51,10 @@ so I can close my session
 
 **Acceptance Criteria**
 
-- To sign out, I should be able to click the sign out button on any page of the website
-- I should be notified if I sign out succesfully
-- I should be notified if sign out fails
-- If I sign out succesfully, I am redirected to the homepage (gif page)
+- X To sign out, I should be able to click the sign out button on any page of the website
+- X I should be notified if I sign out succesfully
+- X I should be notified if sign out fails
+- X If I sign out succesfully, I am redirected to the homepage (gif page)
 
 ---
 
