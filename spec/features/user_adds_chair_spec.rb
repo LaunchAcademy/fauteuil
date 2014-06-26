@@ -15,11 +15,10 @@ feature 'user adds a chair',%q(
   show page.
   I should be notified by email everytime a user reviews my post.
 ) do
+  let(:user) { FactoryGirl.create(:user) }
+  let!(:category) { FactoryGirl.create(:category) }
 
   scenario 'creates a valid chair' do
-    category = FactoryGirl.create(:category)
-    user = FactoryGirl.create(:user)
-
     login_as(user)
     visit new_chair_path
 
@@ -36,8 +35,6 @@ feature 'user adds a chair',%q(
   end
 
   scenario 'add two chairs with same name' do
-    user = FactoryGirl.create(:user)
-    category = FactoryGirl.create(:category)
     #create a name to add in database so that next one will conflict
     chair = FactoryGirl.create(:chair, name: "Joe")
 
@@ -56,9 +53,6 @@ feature 'user adds a chair',%q(
   end
 
   scenario 'user did not fill in required fields' do
-    user = FactoryGirl.create(:user)
-    category = FactoryGirl.create(:category)
-
     login_as(user)
     visit new_chair_path
 
