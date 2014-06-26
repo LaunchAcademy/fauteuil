@@ -27,12 +27,13 @@
           <div class="large-8 small-9 columns">
             <%= form_tag chairs_path, :method => 'get' do %>
               <p>
-                <%= text_field_tag :search, params[:search] %>
+                <%= label_tag :search %>
+                <%= text_field_tag :search %>
+                <div class="large-4 small-3 columns">
+                  <%= submit_tag "Search", class: "alert button expand" %>
+                </div>
               </p>
-          </div>
-          <div class="large-4 small-3 columns">
-              <%= submit_tag "Search", class: "alert button expand" %>
-             <% end %>
+            <% end %>
           </div>
         </div>
       </li>
@@ -54,19 +55,8 @@
     </ul>
   </section>
 </nav>
-
-
-
-
-
-
-
-
-
-
-
   <div class="container">
-    <p class="notice"><strong><%= notice %></strong></p>
+    <p class="notice"><strong><%= flash[:notice] %></strong></p>
     <p class="alert"><%= alert %></p>
   </div>
 
