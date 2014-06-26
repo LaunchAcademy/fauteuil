@@ -5,7 +5,7 @@ feature 'user visits chairs new page to add a photo of a chair' do
 
   scenario 'User loads photo' do
 
-    visit '/chairs/new'
+    visit new_chair_path
 
     # save_and_open_page
     # attach_file('Picture', 'spec/fixtures/avatar.jpeg')
