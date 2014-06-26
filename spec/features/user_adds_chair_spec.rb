@@ -21,7 +21,7 @@ feature 'user adds a chair',%q(
     user = FactoryGirl.create(:user)
 
     login_as(user)
-    visit '/chairs/new'
+    visit new_chair_path
 
     fill_in "Name", with: "Bean Bag"
     fill_in "Location", with: "Boston"
@@ -42,7 +42,7 @@ feature 'user adds a chair',%q(
     chair = FactoryGirl.create(:chair, name: "Joe")
 
     login_as(user)
-    visit 'chairs/new'
+    visit new_chair_path
 
     #name "Joe" already exists
     fill_in "Name", with: "Joe"
@@ -60,7 +60,7 @@ feature 'user adds a chair',%q(
     category = FactoryGirl.create(:category)
 
     login_as(user)
-    visit 'chairs/new'
+    visit new_chair_path
 
     fill_in "Manufacturer", with: "Ikea"
     fill_in "Description", with: "This is a sleepy kind of chair"
