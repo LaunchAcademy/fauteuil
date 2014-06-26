@@ -17,7 +17,6 @@ class ChairsController < ApplicationController
     if @chair.save
       redirect_to @chair, notice: 'Chair was successfully created.'
     else
-
       render action: 'new'
     end
   end

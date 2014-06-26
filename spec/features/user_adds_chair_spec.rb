@@ -35,8 +35,45 @@ feature 'user adds a chair',%q(
     expect(page).to have_content("Bean Bag")
   end
 
-  scenario 'add an invalid chair' do
-    #to be done soon
+  scenario 'add two chairs with same name' do
+    user = FactoryGirl.create(:user)
+    category = FactoryGirl.create(:category)
+    #create a name to add in database so that next one will conflict
+    chair = FactoryGirl.create(:chair, name: "Joe")
+
+    login_as(user)
+    visit 'chairs/new'
+
+    #name "Joe" already exists
+    fill_in "Name", with: "Joe"
+    fill_in "Location", with: "Boston"
+    fill_in "Manufacturer", with: "Ikea"
+    fill_in "Description", with: "This is a sleepy kind of chair"
+
+    click_on "Add Chair"
+
+    expect(page). to have_content("already been taken")
   end
+
+  scenario 'user did not fill in required fields' do
+    user = FactoryGirl.create(:user)
+    category = FactoryGirl.create(:category)
+
+    login_as(user)
+    visit 'chairs/new'
+
+    fill_in "Manufacturer", with: "Ikea"
+    fill_in "Description", with: "This is a sleepy kind of chair"
+
+    click_on "Add Chair"
+
+    expect(page). to have_content("can't be blank")
+  end
+
+  scenario 'user is not signed in and wants to access page' do
+    visit 'chairs/new'
+    expect(page). to have_content("You need to sign in")
+  end
+
 
 end
