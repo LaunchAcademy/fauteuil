@@ -1,6 +1,9 @@
 class ChairsController < ApplicationController
   def index
     @chairs = Chair.limit(25)
+    if params[:search]
+      @chairs = Chair.search(params[:search])
+    end
   end
 
   def show

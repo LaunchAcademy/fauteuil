@@ -4,15 +4,26 @@
   </div>
 </div>
 
-  <% @chairs.each do |chair| %>
-    <div class="row chair" data-type="background" id="<%=chair.id%>">
-      <article class="chair-focus">
-        <%= image_tag chair.picture_url %>
-        <%= link_to chair.name, chair_path(chair.id)%>
-        Location: <%= chair.location %>
-      </article>
-    </div>
-  <% end %>
+<%= form_tag chairs_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<% if params[:search] %>
+  <%= link_to "back", chairs_path %>
+<% end %>
+
+<% @chairs.each do |chair| %>
+  <div class="row chair" data-type="background" id="<%=chair.id%>">
+    <article class="chair-focus">
+      <%= image_tag chair.picture_url %>
+      <%= link_to chair.name, chair_path(chair.id)%>
+      Location: <%= chair.location %>
+    </article>
+  </div>
+<% end %>
 
 <div class="row">
   <%= link_to "My Turn to Add a Chair", new_chair_path %>
