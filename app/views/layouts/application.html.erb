@@ -1,70 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Fauteuil</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">Fauteuil</a></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><%= link_to 'Fauteuil', root_path %></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="has-form">
-        <div class="row collapse">
-          <div class="large-8 small-9 columns">
-            <input type="text" placeholder="Find Stuff">
-          </div>
-          <div class="large-4 small-3 columns">
-            <a href="#" class="alert button expand">Search</a>
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <% if user_signed_in? %>
-
-      <li><a href="#">Signed in as <%= current_user.email %></a></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-
-      <% else %>
-
-      <li><%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %></li>
-
-      <% end %>
-      <li><a href="#">Edit Profile</a></li>
-    </ul>
-  </section>
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-  <div class="container">
-    <p class="notice"><strong><%= notice %></strong></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-
-  <%= yield %>
-
-</body>
+  <head>
+    <title>Fauteuil</title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to 'Fauteuil', root_path %></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><%= link_to 'Fauteuil', root_path %></li>
+      </ul>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Find Chairs">
+              </div>
+              <div class="large-4 small-3 columns">
+                <a href="#" class="alert button expand">Search</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="right">
+          <% if user_signed_in? %>
+          <li><a href="#">Signed in as <%= current_user.email %></a></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li><%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %></li>
+          <% end %>
+          <li><a href="#">Edit Profile</a></li>
+        </ul>
+      </section>
+    </nav>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    <%= yield %>
+  </body>
 </html>

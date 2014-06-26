@@ -1,12 +1,19 @@
-<h1>
-  <em> Fauteuil's </em> Selection of Chairs
-</h1>
+<div class="row">
+  <div class="small-8 large-centered columns">
+    <h1>Fauteuil's Selection of Chairs</h1>
+  </div>
+</div>
 
-<ul>
   <% @chairs.each do |chair| %>
-    <li> <%= chair.name %> || <%= chair.location %> ||
-         <%= chair.picture %> || <%= link_to "==>", chair_path(chair.id)%> </li>
+    <div class="row chair" data-type="background" id="<%=chair.id%>">
+      <article class="chair-focus">
+        <%= chair.picture %>
+        <%= link_to chair.name, chair_path(chair.id)%>
+        Location: <%= chair.location %>
+      </article>
+    </div>
   <% end %>
-</ul>
 
-<%= link_to "My Turn to Add a Chair", new_chair_path %>
+<div class="row">
+  <%= link_to "My Turn to Add a Chair", new_chair_path %>
+</div>

@@ -6,6 +6,7 @@ class ChairsController < ApplicationController
   def show
     @chair = Chair.includes(:category).find(params[:id])
     @review = Review.new
+    @reviews = @chair.reviews.by_rank
   end
 
   def new

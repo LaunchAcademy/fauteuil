@@ -8,5 +8,14 @@ Fauteuil::Application.routes.draw do
     resources :reviews
   end
 
+  resources :reviews do
+    member do
+      post 'upvote'
+    end
+    member do
+      post 'downvote'
+    end
+  end
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 end

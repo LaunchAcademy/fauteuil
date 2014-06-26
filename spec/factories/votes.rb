@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :vote do
+    value 1
+    review_id 0
   end
 end
