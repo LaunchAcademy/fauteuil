@@ -40,7 +40,7 @@ feature 'user adds vote' do
     review = FactoryGirl.create(:review, chair_id: chair.id, user_id: user.id)
     vote = FactoryGirl.create(:vote, review_id: review.id, user_id: user.id)
 
-    # login as second user and add upvote
+    # login as second user and add downvote
     user2 = FactoryGirl.create(:user)
 
     login_as(user2)
@@ -66,7 +66,6 @@ feature 'user adds vote' do
     visit chair_path(chair.id)
 
     expect(page).to have_content 'Already Voted'
-
 
   end
 
