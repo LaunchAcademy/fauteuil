@@ -10,8 +10,6 @@ feature 'user visits chairs new page to add a photo of a chair' do
     login_as(user)
     visit new_chair_path
 
-    save_and_open_page
-
     fill_in "Name", with: "Bean Bag"
     fill_in "Location", with: "Boston"
     fill_in "Manufacturer", with: "Ikea"
