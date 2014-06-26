@@ -3,6 +3,9 @@ class ChairsController < ApplicationController
     @chairs = Chair.limit(25)
     if params[:search]
       @chairs = Chair.search(params[:search])
+      if @chairs == []
+         redirect_to chairs_path, notice: "No results for *#{params[:search]}*"
+      end
     end
   end
 

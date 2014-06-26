@@ -34,4 +34,14 @@ feature 'search for chair' do
     expect(page).to have_content('Tokyo')
   end
 
+  scenario 'search not found' do
+    login_as(user)
+    visit chairs_path
+
+    fill_in "search", with: "france is the best"
+    click_button 'Search'
+
+    expect(page).to have_content('No results for *france is the best*')
+  end
+
 end
