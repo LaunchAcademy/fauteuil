@@ -59,7 +59,7 @@
 
   </div>
 </div>
-<% @chair.reviews.each do |review| %>
+<% @reviews.each do |review| %>
   <div class="row panel">
     <div class="medium-10 columns">
       <p class="rating">
@@ -73,10 +73,16 @@
       </p>
     </div>
     <div class="medium-2 columns">
-      <%= pluralize(review.votes.count(conditions: "value = 1"), "upvotes") %>
-      <%= button_to 'Vote +1', upvote_review_path(review), method: :post, class: "button tiny" %>
-      <%= pluralize(review.votes.count(conditions: "value = -1"), "downvotes") %>
-      <%= button_to 'Vote -1', downvote_review_path(review), method: :post, class: "button alert tiny" %>
+      <% if review.votes.where(user_id: current_user).blank? %>
+        <span class="label secondary"><%= pluralize(review.votes.where(value: 1).count, "upvote") %></span>
+        <%= button_to 'Vote +1', upvote_review_path(review), method: :post, class: "button tiny" %>
+        <span class="label secondary"><%= pluralize(review.votes.where(value: -1).count, "downvote") %></span>
+        <%= button_to 'Vote -1', downvote_review_path(review), method: :post, class: "button alert tiny" %>
+        <% else %>
+        <span class="label"><%= pluralize(review.votes.where(value: 1).count, "upvote") %></span>
+        <span class="label alert"><%= pluralize(review.votes.where(value: -1).count, "downvote") %></span>
+        <p><small>Already Voted</small></p>
+      <% end %>
     </div>
   </div>
  <% end %>

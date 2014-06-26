@@ -15,6 +15,9 @@ class ReviewsController < ApplicationController
     @review.chair = @chair
 
     if @review.save
+      # Automatically add +1 from review author
+      @review.votes.create(value: 1, user_id: current_user.id)
+
       redirect_to @chair, notice: 'Review was successfully created.'
     else
       render :new

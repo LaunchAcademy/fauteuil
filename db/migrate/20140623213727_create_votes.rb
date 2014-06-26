@@ -4,7 +4,7 @@ class CreateVotes < ActiveRecord::Migration
     	t.integer :review_id, null: false
     	t.integer :user_id, null: false
     	#need to validate between +1 and -1
-    	t.integer :value, null: false
+    	t.integer :like, null: false
 
       t.timestamps
     end

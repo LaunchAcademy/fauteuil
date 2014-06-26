@@ -22,7 +22,7 @@ feature 'user adds review' do
     select '5', from: 'Rating'
     click_button 'Create Review'
 
-    expect(page).to have_content 'Chair was successfully created.'
+    expect(page).to have_content 'Review was successfully created.'
     expect(page).to have_content 'Great chair'
     expect(page).to have_content '5'
 
