@@ -15,12 +15,13 @@ class Review < ActiveRecord::Base
     end
   end
 
-  scope :by_rank, -> {
+  def self.by_rank
     select("reviews.id, reviews.body, reviews.rating, reviews.user_id,
       reviews.created_at, SUM(votes.value) AS vote_rank").
     joins(:votes).
     group("reviews.id").
-    order("vote_rank DESC") }
+    order("vote_rank DESC")
+  end
 
 end
 
