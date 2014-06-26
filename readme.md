@@ -88,12 +88,12 @@ so that I can know what chairs are outhere
 
 **Acceptance Criteria**
 
-- CHECK IF SIGNED IN
+- X CHECK IF SIGNED IN
 - I want to be able to see the picture (if there is one), the name, and the rating of each chair
 - All ratings on that page are the average of all the ratings from the reviews
 - All posts should be ranked according to their rating
 - Each picture/or name should take me to the show page of that chair so that I can see its details
-- I should be able to search for a specfic chair.
+- X I should be able to search for a specfic chair.
 - I should be able to navigate through the different pages.
 
 ---
@@ -107,10 +107,10 @@ I want to be able search for a chair
 
 **Acceptance Criteria**
 
-- CHECK IF SIGNED IN
-- I should be able to look for a chair according to its name, category (e.g. study chair).
-- If no results are found, user should be noticed with an alert message on that same page
-- If some results are found, the user should be prompted that results wer found and the page is re-rendered (in
+- X CHECK IF SIGNED IN
+- X  I should be able to look for a chair according to its name, category (e.g. study chair).
+- X If no results are found, user should be noticed with an alert message on that same page
+- X If some results are found, the user should be prompted that results wer found and the page is re-rendered (in
 the same format as index.html) with only the results
 
 ---
@@ -138,10 +138,10 @@ I want to be able to add a chair to the website so that I can see it in the inde
 
 **Acceptance Criteria**
 
-- I should be signed in!
+- X I should be signed in!
 - I can add a chair with: a new picture, a name, a breif desciption(optional), rating (1-5 stars) and its characteristics (some will be tick form, other fill-ins)
-- I should be alerted if any field is filled-in in the wrong fashion
-- If the chair is succesfully saved, I should be alerted so and redirected to the newly chair show page.
+- X I should be alerted if any field is filled-in in the wrong fashion
+- X  the chair is succesfully saved, I should be alerted so and redirected to the newly chair show page.
 - I should be notified by email everytime a user reviews my post.
 
 ---
