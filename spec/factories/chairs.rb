@@ -7,7 +7,7 @@ FactoryGirl.define do
     description "swedish chair"
     manufacturer "Ikea"
     location "Boston"
-    picture "url to picture"
+    picture { File.new("#{Rails.root}/spec/support/fixtures/image.jpg") }
 
     category
     user

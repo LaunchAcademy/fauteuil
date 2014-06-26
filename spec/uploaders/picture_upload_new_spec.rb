@@ -24,7 +24,7 @@ feature 'user visits chairs new page to add a photo of a chair' do
 
     click_button 'Add Chair'
 
-    expect(page).to have_content("Success!")
+    expect(page).to have_content("Chair was successfully created.")
 
   end
 end
