@@ -11,14 +11,19 @@
 
 <% @chairs.each do |chair| %>
   <div class="row chair" data-type="background" id="<%=chair.id%>">
+  <div class="small-12 columns">
     <article class="chair-focus">
-      <%= link_to image_tag(chair.picture_url), chair_path(chair.id) %>
+      <p>
       <%=  chair.name%>
-      Location: <%= chair.location %>
+      Location: <%= chair.location %></p>
+      <%= link_to image_tag(chair.picture_url), chair_path(chair.id) %>
     </article>
+    </div>
   </div>
 <% end %>
 
-<div class= "pagination centered" >
-  <%= paginate @chairs %>
+<div class="row">
+  <div class="small-8 columns small-centered">
+    <%= paginate @chairs %>
+  </div>
 </div>
