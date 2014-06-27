@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   validates :role, inclusion: {in: ["user", "admin"]}
 	validates_uniqueness_of :username
   validates_uniqueness_of :email
+
 end
