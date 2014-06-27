@@ -23,6 +23,11 @@
   <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password, autocomplete: "off" %>
 
+  <p>Change Image of yourself</p></br>
+  <%= f.file_field :avatar %></br>
+
+  <%= image_tag @user.avatar_url %>
+
   <%= f.submit "Update" %>
   <% end %>
 
