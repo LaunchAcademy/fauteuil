@@ -5,7 +5,7 @@ class ChairsController < ApplicationController
     if params[:search]
       @chairs = Chair.search(params[:search])
       if @chairs.empty?
-        flash.now[:notice] = "No results found for *#{params[:search]}*"
+         flash.now[:notice] = "No results"
       end
     end
   end

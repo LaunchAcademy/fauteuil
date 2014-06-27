@@ -1,11 +1,12 @@
 // Displays value of rating slider for new reviews
 function outputUpdate(val) {
-    document.querySelector('#rating_show').value = val;
+    document.querySelector('#rating_show').data("score") = val;
 }
 
-// Parallax effect for chair index
+
 $(document).ready(function() {
 
+    // Parallax effect for chair index
     document.createElement("article");
 
     $('div[data-type="background"]').each(function() {
@@ -22,5 +23,18 @@ $(document).ready(function() {
         });
 
     });
+
+    // Star ratings
+    $(".rating").html(function() {
+        var num = $(this).data("score");
+
+        $(this).append("<i class='fa fa-empty'></i>")
+
+        for (i = 0; i < num; i++) {
+            $(this).append("<i class='fa fa-star'></i>");
+        }
+    });
+
+
 
 });
