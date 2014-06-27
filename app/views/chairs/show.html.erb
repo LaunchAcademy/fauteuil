@@ -66,8 +66,10 @@
 <% @reviews.each do |review| %>
   <div class="row panel">
     <div class="medium-10 columns">
-      <p class="rating">
+      <p>
+
         <strong>Rating:</strong> <%= review.rating %>
+        <div class="review_rating" data-score="<%= review.rating %>"></div>
       </p>
       <p>
         <strong>Review:</strong> <%= review.body %>

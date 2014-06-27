@@ -63,6 +63,39 @@ $(document).ready(function() {
 
             $(".rating").html(array);
         }
+
+    });
+
+    $(".review_rating").html(function() {
+
+        var array = [];
+
+        // loop through empty array for empty stars
+        for (i = 0; i < 5; i++) {
+            array[i] = ("<i class='fa fa-star-o'></i>");
+        }
+
+        var rating = $(this).data("score");
+
+        // loop through empty star array, to add whole stars
+        // when it's a whole number
+        for (i = 0; i < rating; i++) {
+            array[i] = ("<i class='fa fa-star'></i>");
+            console.log(rating);
+        }
+
+        $(this).html(array);
+
+        if ((rating % 1) != 0) {
+            var whole = parseFloat(rating);
+            console.log(whole);
+            array[whole - 0.5] = ("<i class='fa fa-star-half-o'></i>");
+            console.log(whole + 0.5);
+
+            $(this).html(array);
+        }
+
+
     });
 
     // Parallax effect for chair index
