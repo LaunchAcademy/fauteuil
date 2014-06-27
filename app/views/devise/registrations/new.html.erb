@@ -24,9 +24,11 @@
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </p></br>
 
-  <p>Upload a Image of yourself</p></br>
-  <%= image_tag @user.avatar%></br>
+  <p>Upload a Image of yourself</p>
+  <%= f.label :avatar %>
   <%= f.file_field :avatar %></br>
+  <%= f.hidden_field :avatar_cache %>
+  <%= image_tag @user.avatar_url %>
 
   <%= f.submit "Sign up" %>
 <% end %>
