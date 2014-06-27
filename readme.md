@@ -1,5 +1,6 @@
 Chair-Review
 ============
+[![Build Status](https://travis-ci.org/<dpoint01>/<fauteuil>.svg?branch=master)](https://travis-ci.org/<dpoint01>/<fauteuil>) [![Code Climate](https://codeclimate.com/github/<dpoint01>/<fauteuil>.png)](https://codeclimate.com/github/<dpoint01>/<fauteuil>) [![Coverage Status](https://coveralls.io/repos/<dpoint01>/<fauteuil>/badge.png)](https://coveralls.io/r/<dpoint01>/<fauteuil>)
 
 _**Group Project  ~ Kevin Jain ~ Rachel Serur ~ Patrick Arthur ~ David Pointeau ~**_
 
