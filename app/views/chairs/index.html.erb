@@ -1,23 +1,27 @@
 <div class="row">
   <div class="small-8 large-centered columns">
     <h1>Fauteuil's Selection of Chairs</h1>
+     <%= link_to "My Turn to Add a Chair", new_chair_path, class:"button expand"%>
   </div>
 </div>
-
-<% if params[:search] %>
-  <%= link_to "back", chairs_path %>
-<% end %>
 
 <% @chairs.each do |chair| %>
   <div class="row chair" data-type="background" id="<%=chair.id%>">
+  <div class="small-12 columns">
     <article class="chair-focus">
-      <%= image_tag chair.picture_url %>
-      <%= link_to chair.name, chair_path(chair.id)%>
-      Location: <%= chair.location %>
+      <p>
+      <%=  chair.name%>
+      Location: <%= chair.location %></p>
+      <%= link_to image_tag(chair.picture_url), chair_path(chair.id) %>
     </article>
+    </div>
   </div>
 <% end %>
 
+<% if !params[:search] %>
 <div class="row">
-  <%= link_to "My Turn to Add a Chair", new_chair_path %>
+  <div class="small-8 columns small-centered">
+    <%= paginate @chairs %>
+  </div>
 </div>
+<% end %>

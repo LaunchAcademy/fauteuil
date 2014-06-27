@@ -1,12 +1,11 @@
 class ChairsController < ApplicationController
   def index
-    @chairs = Chair.limit(25)
+    @chairs = Chair.page(params[:page]).per(3)
 
     if params[:search]
       @chairs = Chair.search(params[:search])
       if @chairs.empty?
-         flash.now[:notice] = "No results"
-         #*#{params[:search]}*"
+        flash.now[:notice] = "No results found for *#{params[:search]}*"
       end
     end
   end

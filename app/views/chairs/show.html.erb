@@ -54,6 +54,7 @@
 </div>
 <div class="row">
   <div class="medium-4 columns">
+    <%= image_tag @chair.picture_url %>
 
   <h2>Reviews</h2>
 
@@ -87,6 +88,5 @@
   </div>
  <% end %>
 
-<%= image_tag @chair.picture_url %>
 
 <%= link_to "H O M E", chairs_path %>
