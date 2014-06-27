@@ -48,6 +48,8 @@
 
   <%= f.label :picture %>
   <%= f.file_field :picture %>
+  <%= f.hidden_field :picture_cache %>
+  <%= image_tag @chair.picture_url %>
 
 
 <% end %>

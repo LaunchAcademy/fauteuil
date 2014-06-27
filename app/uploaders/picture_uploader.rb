@@ -1,25 +1,27 @@
 # encoding: utf-8
 
 class PictureUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MimeTypes
+
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+ if Rails.env.production? || Rails.env.development?
+    storage :fog
+  else
+    storage :file
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
 
-  def save_content_type_and_size_in_model
-    model.content_type = file.content_type if file.content_type
-    model.file_size = file.size
-  end
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

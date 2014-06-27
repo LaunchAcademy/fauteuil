@@ -36,7 +36,13 @@ gem 'devise'
 
 gem 'carrierwave'
 
+gem 'fog'
+
 gem 'kaminari'
+
+group :development, :test do
+  gem 'dotenv-rails'
+end
 
 
 group :development, :test do
