@@ -22,7 +22,11 @@
   <p>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </p>
+  </p></br>
+
+  <p>Upload a Image of yourself</p></br>
+  <%= image_tag @user.avatar_url %></br>
+  <%= f.file_field :avatar %></br>
 
   <%= f.submit "Sign up" %>
 <% end %>
