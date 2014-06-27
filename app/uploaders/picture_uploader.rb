@@ -16,6 +16,11 @@ class PictureUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def save_content_type_and_size_in_model
+    model.content_type = file.content_type if file.content_type
+    model.file_size = file.size
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -35,6 +40,8 @@ class PictureUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
   # end
+
+
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
