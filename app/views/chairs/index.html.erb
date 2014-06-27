@@ -5,10 +5,6 @@
   </div>
 </div>
 
-<% if params[:search] %>
-  <%= link_to "back", chairs_path %>
-<% end %>
-
 <% @chairs.each do |chair| %>
   <div class="row chair" data-type="background" id="<%=chair.id%>">
   <div class="small-12 columns">
@@ -22,8 +18,10 @@
   </div>
 <% end %>
 
+<% if !params[:search] %>
 <div class="row">
   <div class="small-8 columns small-centered">
     <%= paginate @chairs %>
   </div>
 </div>
+<% end %>
