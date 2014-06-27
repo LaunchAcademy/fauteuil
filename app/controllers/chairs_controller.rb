@@ -1,6 +1,14 @@
 class ChairsController < ApplicationController
   def index
     @chairs = Chair.limit(25)
+
+    if params[:search]
+      @chairs = Chair.search(params[:search])
+      if @chairs.empty?
+         flash.now[:notice] = "No results"
+         #*#{params[:search]}*"
+      end
+    end
   end
 
   def show
