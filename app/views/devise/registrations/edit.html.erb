@@ -26,9 +26,9 @@
 
 
   <p>Change Image of yourself</p></br>
-  <%= f.file_field :avatar %></br>
 
- <%= image_tag @user.avatar_url %>
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
 
   <%= f.submit "Update" %>
   <% end %>
