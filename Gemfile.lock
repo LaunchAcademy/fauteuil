@@ -95,6 +95,8 @@ GEM
     fog-json (1.0.0)
       multi_json (~> 1.0)
     formatador (0.2.5)
+    font-awesome-sass (4.1.0)
+      sass (~> 3.2)
     hike (1.2.3)
     i18n (0.6.9)
     inflecto (0.0.2)
@@ -229,6 +231,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   fog
+  font-awesome-sass
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
