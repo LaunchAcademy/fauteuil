@@ -7,7 +7,7 @@
   <% @chairs.each do |chair| %>
     <div class="row chair" data-type="background" id="<%=chair.id%>">
       <article class="chair-focus">
-        <%= chair.picture %>
+        <%= image_tag chair.picture_url %>
         <%= link_to chair.name, chair_path(chair.id)%>
         Location: <%= chair.location %>
       </article>
