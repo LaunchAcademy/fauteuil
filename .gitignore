@@ -17,4 +17,5 @@
 /config/database.yml
 
 #ignore public folder
-/public
+/public/uploads
+/coverage
