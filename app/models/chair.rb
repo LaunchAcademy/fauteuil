@@ -1,7 +1,7 @@
 class Chair < ActiveRecord::Base
 	belongs_to :user
   belongs_to :category
-	has_many :reviews
+	has_many :reviews, dependent: :destroy
   mount_uploader :picture, PictureUploader
 
 	validates :name, uniqueness: true

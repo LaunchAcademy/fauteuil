@@ -1,6 +1,7 @@
 <div class="row">
   <div class="small-8 large-centered columns">
     <h1>Fauteuil's Selection of Chairs</h1>
+     <%= link_to "My Turn to Add a Chair", new_chair_path, class:"button expand"%>
   </div>
 </div>
 
@@ -11,13 +12,9 @@
 <% @chairs.each do |chair| %>
   <div class="row chair" data-type="background" id="<%=chair.id%>">
     <article class="chair-focus">
-      <%= image_tag chair.picture_url %>
-      <%= link_to chair.name, chair_path(chair.id)%>
+      <%= link_to image_tag(chair.picture_url), chair_path(chair.id) %>
+      <%=  chair.name%>
       Location: <%= chair.location %>
     </article>
   </div>
 <% end %>
-
-<div class="row">
-  <%= link_to "My Turn to Add a Chair", new_chair_path %>
-</div>
