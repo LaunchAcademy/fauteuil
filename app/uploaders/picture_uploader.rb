@@ -1,4 +1,5 @@
 class PictureUploader < CarrierWave::Uploader::Base
+
   include CarrierWave::MimeTypes
 
   if Rails.env.production? || Rails.env.development?
