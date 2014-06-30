@@ -16,8 +16,6 @@ feature "user visits registration uploads photo" do
 
     click_button "Sign up"
 
-    save_and_open_page
-
     expect(page).to have_content("You have signed up successfully.")
 
   end
