@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.update_attributes(account_update_params)
       set_flash_message :notice, :updated
       # Sign in the user bypassing validation in case their password changed
-      sign_in @user, :bypass => true
+      sign_in @user, bypass: true
       redirect_to after_update_path_for(@user)
     else
       render "edit"
@@ -26,7 +26,8 @@ class RegistrationsController < Devise::RegistrationsController
   def update_with_password(params={})
     if params[:password].blank?
       params.delete(:password)
-      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+      params.delete(:password_confirmation)
+      if params[:password_confirmation].blank?
     end
     update_attributes(params)
   end
