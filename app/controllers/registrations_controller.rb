@@ -1,6 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
 
-
   def update
     # For Rails 4
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
@@ -25,15 +24,14 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update_with_password(params={})
-  if params[:password].blank?
-    params.delete(:password)
-    params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+    update_attributes(params)
   end
 
-  update_attributes(params)
-end
-
-   protected
+  protected
 
   def after_sign_up_path_for(resource)
     '/chairs'
