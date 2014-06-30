@@ -9,10 +9,10 @@
   <div class="row chair" data-type="background" id="<%=chair.id%>">
   <div class="small-12 columns">
     <article class="chair-focus">
-      <p>
-      <%=  chair.name%>
-      Location: <%= chair.location %></p>
-      <%= link_to image_tag(chair.picture_url), chair_path(chair.id) %>
+      <%= image_tag chair.picture_url %>
+      <%= link_to chair.name, chair_path(chair.id)%>
+      Location: <%= chair.location %>
+      Average Rating: <%= chair.average_rating %>
     </article>
     </div>
   </div>
