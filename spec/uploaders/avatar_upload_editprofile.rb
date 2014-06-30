@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature "user visits edit profile changes photo" do
+feature "user visits edit profile to update information" do
 
-  scenario "User changes photo" do
+  scenario "User updates profile information" do
 
     user = FactoryGirl.create(:user)
     login_as(user)
