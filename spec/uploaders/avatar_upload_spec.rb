@@ -20,6 +20,3 @@ feature "user visits registration uploads photo" do
 
   end
 end
-
-
-
