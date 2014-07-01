@@ -13,6 +13,7 @@ feature "user visits edit profile to update information" do
     fill_in "Password", with: "12345678"
     fill_in "Password confirmation", with: "12345678"
     attach_file("Avatar", "spec/fixtures/avatar.jpeg")
+    expect(page).to have_css("img[src='#{user.avatar_url}']")
 
     click_button "Update"
 

@@ -19,13 +19,10 @@ gem 'carrierwave'
 gem 'fog'
 gem 'kaminari'
 
+
+
 group :development, :test do
   gem 'dotenv-rails'
-end
-
-
-
-group :development, :test do
   gem 'shoulda-matchers'
 	gem 'capybara'
 	gem 'factory_girl_rails'
