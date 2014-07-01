@@ -16,16 +16,15 @@ feature 'user views chairs', %q(
 ) do
 
   scenario 'view list of chairs' do
-    chairs = FactoryGirl.create_list(:chair, 6)
+    chair = FactoryGirl.create(:chair)
 
     user = FactoryGirl.create(:user)
     login_as(user)
 
     visit chairs_path
 
-    chairs.each do |chair|
-      expect(page).to have_content(chair.name, chair.picture)
-    end
+    expect(page).to have_content(chair.name)
+
   end
 
 end
