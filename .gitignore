@@ -19,3 +19,7 @@
 #ignore public folder
 /public/uploads
 /coverage
+
+# Ignore environment variables
+/.env
+

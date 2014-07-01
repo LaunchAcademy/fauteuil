@@ -45,10 +45,13 @@
 
       <%= f.label :picture %>
       <%= f.file_field :picture %>
+      <%= f.hidden_field :picture_cache %>
+      <%= image_tag @chair.picture_url %>
 
       <%= f.submit 'Add Chair', :class => 'button tiny' %>
     </div>
   </div>
+
 
 <% end %>
 <br>

@@ -11,6 +11,7 @@ feature 'guest registers' do
     fill_in 'Email', with: 'bob@example.com'
     fill_in 'Password', with: '12345678'
     fill_in 'Password confirmation', with: '12345678'
+
     click_button 'Sign up'
 
     expect(page).to have_content('You have signed up successfully.')

@@ -14,17 +14,25 @@
     Currently waiting confirmation for: <%= resource.unconfirmed_email %>
   <% end %>
 
-  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, autocomplete: "off" %>
+
+  <%= f.label :password %> <i>(Leave Blank if you do not want to change password)</i><br />
+  <%= f.password_field :password, autocomplete: "on" %>
 
   <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <%= f.password_field :password_confirmation, autocomplete: "on" %>
 
-  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password, autocomplete: "off" %>
+
+  <p>Change Image of yourself</p>
+
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
+  <%= image_tag @user.avatar_url %>
+
 
   <%= f.submit "Update" %>
   <% end %>
+
 
   <h3>Cancel my account</h3>
 

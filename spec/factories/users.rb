@@ -6,5 +6,6 @@ FactoryGirl.define do
     password "password"
     sequence(:email) { |n| "someone#{n}@example.com" }
     role "user"
+    # avatar { File.new("#{Rails.root}/spec/fixtures/avatar.jpeg") }
   end
 end
