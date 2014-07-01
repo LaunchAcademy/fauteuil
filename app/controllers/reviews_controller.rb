@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
 
   def new
     @chair = Chair.find(params[:chair_id])
-
     @review = Review.new
   end
 
