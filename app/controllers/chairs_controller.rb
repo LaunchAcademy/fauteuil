@@ -1,4 +1,6 @@
 class ChairsController < ApplicationController
+  before_action :authorize_user, only: [:new, :create]
+
   def index
     @chairs = Chair.page(params[:page]).per(3)
 
@@ -35,4 +37,11 @@ class ChairsController < ApplicationController
   def chair_params
     params.require(:chair).permit(:name, :description, :manufacturer, :location, :picture, :category_id, :user_id)
   end
+
+  def authorize_user
+    unless user_signed_in? and current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
+
 end
