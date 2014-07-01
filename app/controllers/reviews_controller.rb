@@ -14,6 +14,8 @@ class ReviewsController < ApplicationController
     @review.chair = @chair
 
     if @review.save
+
+      @review.generate_email
       # Automatically add +1 from review author
       @review.votes.create(value: 1, user_id: current_user.id)
 
