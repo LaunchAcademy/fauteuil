@@ -15,7 +15,6 @@
     <li class="name">
       <h1><a href="/chairs">Fauteuil</a></h1>
     </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><%= link_to 'Fauteuil', root_path %></li>
   </ul>
 
@@ -23,13 +22,16 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li class="has-form">
-        <div class="row collapse">
-          <div class="large-8 small-9 columns">
-            <%= form_tag chairs_path, :method => 'get' do %>
-                <%= text_field_tag :search %>
-                <%= submit_tag "Search", class: "button postfix" %>
-            <% end %>
+        <%= form_tag chairs_path, method: 'get' do %>
+          <div class="row collapse">
+            <div class="large-8 small-9 columns">
+              <%= text_field_tag :search %>
+            </div>
+            <div class="large-4 small-3 columns">
+              <%= submit_tag "Search", class: "alert button expand" %>
+            </div>
           </div>
+          <% end %>
         </div>
       </li>
     </ul>

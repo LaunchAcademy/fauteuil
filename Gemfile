@@ -35,3 +35,7 @@ end
 group :test do
   gem 'coveralls', require: false
 end
+
+gem 'font-awesome-sass'
+gem 'jquery-turbolinks'
+

@@ -16,4 +16,12 @@ class Chair < ActiveRecord::Base
     end
   end
 
+  def update_average_rating
+    @average = reviews.average(:rating)
+
+    @average = (@average * 2).round / 2
+
+    update_attributes(average_rating: @average)
+  end
+
 end

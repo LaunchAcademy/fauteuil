@@ -1,73 +1,72 @@
 <div class="row">
-  <div class="medium-8 columns">
+  <div class="medium-4 columns">
+    <%= image_tag @chair.picture_url %>
+  </div>
+  <div class="medium-4 columns">
     <h2>
       <%= @chair.name %>
     </h2>
-
+    <p class="review_rating" data-score="<%= @chair.average_rating %>"></p>
     <p>
-  <strong>Location: </strong>
-  <%= @chair.location %>
-</p>
-
-<p>
-  <strong>Manufacturer: </strong>
-  <%= @chair.manufacturer %>
-</p>
-
-<p>
-  <strong>Category: </strong>
-<!-- Add Category Name -->
-</p>
-
-<p>
-  <strong>Description: </strong>
-  <%= @chair.description %>
-</p>
+      <strong>Average Rating:</strong>
+      <%= @chair.average_rating %>
+    </p>
+    <p>
+      <strong>Location: </strong>
+      <%= @chair.location %>
+    </p>
+    <p>
+      <strong>Manufacturer: </strong>
+      <%= @chair.manufacturer %>
+    </p>
+    <p>
+      <strong>Category: </strong>
+      <%= @chair.category.name %>
+    </p>
+    <p>
+      <strong>Description: </strong>
+      <%= @chair.description %>
+    </p>
   </div>
   <div class="medium-4 columns panel callout">
-  <h3>Add Your Review</h3>
+    <h3>Add Your Review</h3>
     <%= form_for([@chair, @review]) do |f| %>
-
       <% if @review.errors.any? %>
-
         <p id="error_explanation">
           <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
-
           <ul>
-          <% @review.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
+            <% @review.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
           </ul>
         </p>
-
       <% end %>
-
-        <%= f.label :rating %>
-        <%= f.range_field(:rating, in: 1.0..5.0, step: 0.5, onchange: "outputUpdate(value)") %>
-        <output for="review_rating" id="rating_show"></output>
-        <%= f.label(:body, "Review") %>
-        <%= f.text_area :body %>
-        <%= f.submit(class: "button") %>
-
+      <%= f.label :rating %>
+      <%= f.range_field(:rating, in: 0..5.0, step: 0.5, onchange: "outputUpdate(value)", id: "slider", value: "0") %>
+      <output for="review_rating" id="rating_show">0</output>
+      <div class="rating"></div>
+      <%= f.label(:body, "Review") %>
+      <%= f.text_area :body %>
+      <%= f.submit(class: "button") %>
     <% end %>
   </div>
 </div>
 <div class="row">
   <div class="medium-4 columns">
-    <%= image_tag @chair.picture_url %>
-
-  <h2>Reviews</h2>
-
+    <h2>Reviews</h2>
   </div>
 </div>
 <% @reviews.each do |review| %>
   <div class="row panel">
     <div class="medium-10 columns">
-      <p class="rating">
-        <strong>Rating:</strong> <%= review.rating %>
+      <p>
+        <strong>Rating:</strong>
+        <%= review.rating %>
+        <div class="review_rating" data-score="<%= review.rating %>"></div>
       </p>
       <p>
-        <strong>Review:</strong> <%= review.body %>
+        <strong>Review:</strong>
+        <%= review.body %>
       </p>
       <p>
         <em><%= review.created_at.time.to_formatted_s(:short)  %></em>
@@ -75,18 +74,27 @@
     </div>
     <div class="medium-2 columns">
       <% if review.votes.where(user_id: current_user).blank? %>
-        <span class="label secondary"><%= pluralize(review.votes.where(value: 1).count, "upvote") %></span>
+        <span class="label secondary">
+          <%= pluralize(review.votes.where(value: 1).count, "upvote") %>
+        </span>
         <%= button_to 'Vote +1', upvote_review_path(review), method: :post, class: "button tiny" %>
-        <span class="label secondary"><%= pluralize(review.votes.where(value: -1).count, "downvote") %></span>
+        <span class="label secondary">
+          <%= pluralize(review.votes.where(value: -1).count, "downvote") %>
+        </span>
         <%= button_to 'Vote -1', downvote_review_path(review), method: :post, class: "button alert tiny" %>
-        <% else %>
-        <span class="label"><%= pluralize(review.votes.where(value: 1).count, "upvote") %></span>
-        <span class="label alert"><%= pluralize(review.votes.where(value: -1).count, "downvote") %></span>
-        <p><small>Already Voted</small></p>
+      <% else %>
+        <span class="label">
+          <%= pluralize(review.votes.where(value: 1).count, "upvote") %>
+        </span>
+        <span class="label alert">
+          <%= pluralize(review.votes.where(value: -1).count, "downvote") %>
+        </span>
+        <p>
+          <small>
+            Already Voted
+          </small>
+        </p>
       <% end %>
     </div>
   </div>
- <% end %>
-
-
-<%= link_to "H O M E", chairs_path %>
+<% end %>
