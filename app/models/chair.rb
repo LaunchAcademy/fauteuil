@@ -17,14 +17,7 @@ class Chair < ActiveRecord::Base
   end
 
   def update_average_rating
-    @value = 0
-    self.reviews.each do |review|
-      @value = @value + review.rating
-    end
-
-    @total = self.reviews.size
-
-    @average = @value.to_f / @total.to_f
+    @average = reviews.average(:rating)
 
     @average = (@average * 2).round / 2
 

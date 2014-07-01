@@ -5,19 +5,19 @@
   </div>
 </div>
 <% @chairs.each do |chair| %>
-<div class="row chair" data-type="background" id="chair_<%=chair.id%>"style="background-image: url(<%= chair.picture_url %>);">
-  <article class="chair-focus">
-    <h2><%= link_to chair.name, chair_path(chair.id)%></h2>
-    <p>Location: <%= chair.location %></p>
-    <p class="review_rating" data-score="<%= chair.average_rating %>"></p>
-  </article>
-</div>
+  <div class="row chair" data-type="background" id="chair_<%=chair.id%>"style="background-image: url(<%= chair.picture_url %>);">
+    <article class="chair-focus">
+      <h2><%= link_to chair.name, chair_path(chair.id)%></h2>
+      <p>Location: <%= chair.location %></p>
+      <p class="review_rating" data-score="<%= chair.average_rating %>"></p>
+    </article>
+  </div>
 </div>
 <% end %>
 <% if !params[:search] %>
-<div class="row">
-<div class="small-8 columns small-centered">
-  <%= paginate @chairs %>
-</div>
-</div>
+  <div class="row">
+    <div class="small-8 columns small-centered">
+      <%= paginate @chairs %>
+    </div>
+  </div>
 <% end %>
