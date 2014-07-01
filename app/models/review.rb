@@ -2,6 +2,8 @@ class Review < ActiveRecord::Base
   belongs_to :chair
   belongs_to :user
   has_many :votes
+  after_create :update_chair_rating
+  after_destroy :update_chair_rating
 
   validate :body, presence: true
 
@@ -21,6 +23,10 @@ class Review < ActiveRecord::Base
     joins(:votes).
     group("reviews.id").
     order("vote_rank DESC")
+  end
+
+  def update_chair_rating
+    chair.update_average_rating
   end
 
 end

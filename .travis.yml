@@ -1,5 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.0
+  - 2.1.2
 before_script:
-  - psql -c 'create database fauteuil_test;' -U postgre
+  - cp config/database.example.yml config/database.yml
+  - psql -c 'create database fauteuil_test;' -U postgres
