@@ -71,9 +71,6 @@
       </p>
       <p>
         <em><%= review.created_at.time.to_formatted_s(:short)  %></em>
-        <% if user_signed_in? and current_user.admin? %>
-        <%= button_to "Delete Review", review, :method=>:delete, :class=>:destroy %></br></br>
-        <% end %>
       </p>
     </div>
     <div class="medium-2 columns">
@@ -91,8 +88,8 @@
   </div>
  <% end %>
 
-<% if user_signed_in? and current_user.admin? %>
+<% if current_user.admin? %>
 <%= button_to "Delete Chair", @chair, :method=>:delete, :class=>:destroy %></br></br>
-<% end %>
-
+<% else %>
 <%= link_to "H O M E", chairs_path %>
+<% end %>
