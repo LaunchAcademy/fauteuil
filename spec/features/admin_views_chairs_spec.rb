@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'admin visits chairs page to delete review' do
+feature "admin visits chairs page to delete review" do
 
   user = FactoryGirl.create(:user,role: "admin")
 
@@ -11,14 +11,9 @@ feature 'admin visits chairs page to delete review' do
     visit "/chairs/#{chair.id}"
     save_and_open_page
 
-    click_button 'Delete Chair'
+    click_button "Delete Chair"
 
-    expect(page).to have_content('Chair was deleted')
+    expect(page).to have_content("Chair was deleted")
   end
 
 end
-
-
-
-
-
