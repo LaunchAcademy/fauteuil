@@ -28,7 +28,7 @@
       <%= @chair.description %>
     </p>
   </div>
-  <div class="medium-4 columns panel callout">
+  <div class="medium-4 columns panel">
     <h3>Add Your Review</h3>
     <%= form_for([@chair, @review]) do |f| %>
       <% if @review.errors.any? %>

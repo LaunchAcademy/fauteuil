@@ -53,9 +53,22 @@ a {
 }
 
 a:hover {
-  color: lighten(#004774, 65)
+  color: darken(#004774, 10)
 }
 
 article h2 a{
   color: #004774;
+}
+
+.fa-star, .fa-star-o, .fa-star-half-o {
+  color: #FFB74E;
+  font-size: 1.5rem;
+}
+
+
+.panel {
+  .fa-star, .fa-star-o, .fa-star-half-o {
+    color: darken(#FFB74E,10);
+    font-size: 1rem;
+  }
 }

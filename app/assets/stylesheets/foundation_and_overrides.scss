@@ -61,11 +61,11 @@ $body-font-family: "Crete Round", Rockwell, "Courier Bold", Courier, Georgia, Ti
 
 // We use these as default colors throughout
 $primary-color: #004774;
-$secondary-color: #e7e7e7;
+$secondary-color: #002E5A;
 $alert-color: #BEB2A4;
-$success-color: #43AC6A;
-$warning-color: #f08a24;
-$info-color: #a0d3e8;
+$success-color: lighten(#00578E, 15);
+$warning-color: #F2F2D6;
+$info-color: #DAD4BA;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -793,12 +793,12 @@ $info-color: #a0d3e8;
 // $pagination-li-float: $default-float;
 // $pagination-li-height: rem-calc(24);
 // $pagination-li-font-color: #222;
-// $pagination-li-font-size: rem-calc(14);
+$pagination-li-font-size: rem-calc(20);
 // $pagination-li-margin: rem-calc(5);
 
 // We use these for the pagination anchor links
 // $pagination-link-pad: rem-calc(1 10 1);
-// $pagination-link-font-color: #999;
+  $pagination-link-font-color: $primary-color;
 // $pagination-link-active-bg: scale-color(#fff, $lightness: -10%);
 
 // We use these for disabled anchor links
@@ -818,7 +818,7 @@ $info-color: #a0d3e8;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color(#fff, $lightness: -5%);
+  $panel-bg: #DAD4BA;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
