@@ -1,6 +1,5 @@
 class ChairsController < ApplicationController
-  before_action :authorize_user, only: [:edit, :destroy]
-
+  before_action :authorize_user, only: [:edit]
   def index
     @chairs = Chair.page(params[:page]).per(3)
 
@@ -22,6 +21,7 @@ class ChairsController < ApplicationController
     @chair = Chair.new
   end
 
+
   def create
     @chair = Chair.new(chair_params)
 
@@ -30,6 +30,14 @@ class ChairsController < ApplicationController
     else
       render :new, notice: "Your chair couldnt be saved."
     end
+  end
+
+  def destroy
+    @chair = Chair.find(params[:id])
+    if @chair.present?
+      @chair.destroy
+    end
+    redirect_to chairs_path, notice: "Chair was deleted"
   end
 
   private

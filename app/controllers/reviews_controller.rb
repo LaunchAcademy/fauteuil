@@ -24,9 +24,13 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @chair = Chair.find(params[:chair_id])
-    @review  = Edit.find(params[:id])
+  def destroy
+    @review = Review.find(params[:id])
+    @chair = Chair.find(params[:id])
+    if @review.present?
+      @review.destroy
+    end
+    redirect_to @chair, notice: "Review was deleted"
   end
 
   def review_params
