@@ -19,7 +19,9 @@ gem 'carrierwave'
 gem 'fog'
 gem 'kaminari'
 
-
+group :devlopment do
+  gem 'mailcatcher'
+end
 
 group :development, :test do
   gem 'dotenv-rails'
