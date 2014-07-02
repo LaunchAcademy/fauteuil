@@ -22,8 +22,40 @@
   padding-top: 5em;
 }
 
+.top-bar input {
+  margin-top: 1.3em;
+}
+
 .top-bar input[type="text"] {
-    height: auto !important;
-    padding-top: .35rem !important;
-    padding-bottom: .35rem !important;
+  height: auto !important;
+  padding-top: .35rem !important;
+  padding-bottom: .35rem !important;
+  background-color: lighten(#004774,5);
+  border-color: lighten(#004774,5);
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.top-bar input[type="submit"] {
+  background-color: #F2F2D6;
+  color: #004774;
+  font-size: 1.2rem;
+}
+
+.top-bar h1 a {
+  font-size: 2rem;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Crete+Round);
+
+a {
+  color: #F2F2D6;
+}
+
+a:hover {
+  color: lighten(#004774, 65)
+}
+
+article h2 a{
+  color: #004774;
 }
