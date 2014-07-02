@@ -10,7 +10,7 @@ feature 'user visits chairs page to view a photo of a chair' do
     login_as(user)
     visit chairs_path
 
-    expect(page).to have_css("img[src='#{chair.picture_url}']")
+    page.find('div.chair')['style'].should == "background-image: url(#{chair.picture_url});"
   end
 
 end

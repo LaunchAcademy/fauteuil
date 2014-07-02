@@ -1,6 +1,8 @@
-
-<h2> Add a new chair! </h2>
-
+<div class="row">
+  <div class="large-4 columns">
+    <h2> Add a new chair! </h2>
+  </div>
+</div>
 <ul>
   <% if @chair.errors.any? %>
      <% @chair.errors.full_messages.each do |message| %>
@@ -49,10 +51,10 @@
       <%= image_tag @chair.picture_url %>
 
       <%= f.submit 'Add Chair', :class => 'button tiny' %>
+
+      <p><%= link_to "Back", :back %></p>
     </div>
   </div>
 
 
 <% end %>
-<br>
-<%= link_to "H O M E", chairs_path%>
