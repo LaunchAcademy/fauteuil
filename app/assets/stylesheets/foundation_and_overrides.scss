@@ -64,7 +64,7 @@ $primary-color: #004774;
 $secondary-color: #002E5A;
 $alert-color: #BEB2A4;
 $success-color: lighten(#00578E, 15);
-$warning-color: #F2F2D6;
+$warning-color: darken(#F2F2D6, 20);
 $info-color: #DAD4BA;
 
 // We use these to make sure border radius matches unless we want it different.
