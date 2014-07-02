@@ -39,3 +39,4 @@ end
 gem 'font-awesome-sass'
 gem 'jquery-turbolinks'
 
+gem 'rails_12factor' group: :production
