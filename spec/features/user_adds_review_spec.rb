@@ -16,7 +16,7 @@ Acceptance Criteria:
 ) do
 
   scenario 'Add valid review to chair and notify creator' do
-    #clear out mail deliveries
+    # clear out mail deliveries
     ActionMailer::Base.deliveries = []
 
     prev_count = Review.count

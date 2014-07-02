@@ -32,6 +32,5 @@ class Review < ActiveRecord::Base
   def generate_email
     ReviewMailer.review_email(self).deliver
   end
-
 end
 

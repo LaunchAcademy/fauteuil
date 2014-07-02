@@ -1,4 +1,4 @@
-class ReviewMailer< ActionMailer::Base
+class ReviewMailer < ActionMailer::Base
   default from: "info@fauteuil.com"
 
   def review_email(review)
