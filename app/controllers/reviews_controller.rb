@@ -24,6 +24,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @chair = Chair.find(params[:chair_id])
+    @review  = Edit.find(params[:id])
+  end
+
   def review_params
     params.require(:review).permit(:body, :rating)
   end

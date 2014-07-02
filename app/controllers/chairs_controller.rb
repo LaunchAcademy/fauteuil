@@ -1,5 +1,5 @@
 class ChairsController < ApplicationController
-  before_action :authorize_user, only: [:new, :create]
+  before_action :authorize_user, only: [:edit, :destroy]
 
   def index
     @chairs = Chair.page(params[:page]).per(3)

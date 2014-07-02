@@ -88,5 +88,8 @@
   </div>
  <% end %>
 
+<% if user_signed_in? and current_user.admin? %>
+  <%= link_to 'Edit Review', edit_review_path %></br></br>
+<% end %>
 
 <%= link_to "H O M E", chairs_path %>

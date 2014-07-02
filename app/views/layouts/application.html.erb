@@ -40,7 +40,9 @@
 
       <li><a href="#">Signed in as <%= current_user.email %></a></li>
       <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-
+      <% if current_user.admin? %>
+      <li><%= link_to 'Admin Section', admin_path %></li>
+      <% end %>
       <% else %>
 
       <li><%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %></li>
