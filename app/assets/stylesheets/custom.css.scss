@@ -89,3 +89,34 @@ article h2 a{
   }
 }
 
+#cat_rating {
+  animation-duration: 3s;
+  animation-name: slidein;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-name: slidein;
+  position: absolute;
+   margin-top: 38%;
+
+}
+
+@-webkit-keyframes slidein {
+  from {
+    visibility: hidden;
+    margin-left: 80%;
+  }
+  to {
+    visibility: visible;
+    margin-left: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    visibility: hidden;
+    margin-left: 80%;
+  }
+  to {
+    visibility: visible;
+    margin-left: 0;
+  }
+}
