@@ -14,6 +14,14 @@ class ChairsController < ApplicationController
     @chair = Chair.includes(:category).find(params[:id])
     @review = Review.new
     @reviews = @chair.reviews.by_rank
+
+    @already_wrote = false
+
+    @reviews.each do |review|
+      if review.user_id == current_user.id
+        @already_wrote = true
+      end
+    end
   end
 
   def new

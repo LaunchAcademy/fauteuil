@@ -29,25 +29,29 @@
     </p>
   </div>
   <div class="medium-4 columns panel callout">
-    <h3>Add Your Review</h3>
-    <%= form_for([@chair, @review]) do |f| %>
-      <% if @review.errors.any? %>
-        <p id="error_explanation">
-          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
-          <ul>
-            <% @review.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </p>
-      <% end %>
-      <%= f.label :rating %>
-      <%= f.range_field(:rating, in: 0..5.0, step: 0.5, onchange: "outputUpdate(value)", id: "slider", value: "0") %>
-      <output for="review_rating" id="rating_show">0</output>
-      <div class="rating"></div>
-      <%= f.label(:body, "Review") %>
-      <%= f.text_area :body %>
-      <%= f.submit(class: "button") %>
+    <% if !@already_wrote %>
+      <h3>Add Your Review</h3>
+      <%= form_for([@chair, @review]) do |f| %>
+        <% if @review.errors.any? %>
+          <p id="error_explanation">
+            <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
+            <ul>
+              <% @review.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </p>
+        <% end %>
+        <%= f.label :rating %>
+        <%= f.range_field(:rating, in: 0..5.0, step: 0.5, onchange: "outputUpdate(value)", id: "slider", value: "0") %>
+        <output for="review_rating" id="rating_show">0</output>
+        <div class="rating"></div>
+        <%= f.label(:body, "Review") %>
+        <%= f.text_area :body %>
+        <%= f.submit(class: "button") %>
+     <% end %>
+    <% else %>
+      <h3> You already reviewed this chair buddy! </h3>
     <% end %>
   </div>
 </div>
@@ -58,7 +62,7 @@
 </div>
 <% if @reviews == [] %>
   <div class="row panel">
-    <div class="medium-8 medium-centered columns">
+    <div class="medium-7 medium-centered columns">
       <p> There are no reviews associated to this chair yet, be the first one!</p>
     </div>
   </div>
