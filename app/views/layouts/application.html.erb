@@ -31,7 +31,7 @@
               <%= text_field_tag :search %>
             </div>
             <div class="small-4 columns">
-              <%= submit_tag "Search", class: "alert button expand" %>
+              <%= submit_tag "Search", class: "alert button" %>
             </div>
           </div>
           <% end %>
@@ -48,7 +48,8 @@
 
       <% else %>
 
-      <li><%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %></li>
+      <li><%= link_to 'Register', new_user_registration_path %></li>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
 
       <% end %>
       <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
@@ -63,7 +64,6 @@
     </div>
   <% end %>
 <% end %>
-<p></p>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>

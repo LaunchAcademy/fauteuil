@@ -1,4 +1,7 @@
 
+@import url(http://fonts.googleapis.com/css?family=Crete+Round);
+@import url(http://fonts.googleapis.com/css?family=Vibur);
+
 .chair {
   min-height: 1000px;
   height: 1000px;
@@ -8,6 +11,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  max-width: 100% !important;
 
   .chair-focus {
     margin-bottom: 1em;
@@ -15,6 +19,7 @@
     position: absolute;
     text-align: right;
     width: 100%;
+    padding: 2em;
   }
 }
 
@@ -46,8 +51,6 @@
   font-size: 2rem;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Crete+Round);
-
 a {
   color: #F2F2D6;
 }
@@ -72,3 +75,17 @@ article h2 a{
     font-size: 1rem;
   }
 }
+
+.main-button {
+  background-color: #FF9900;
+  font-size: 1.5rem;
+}
+
+.top-bar h1 {
+  font-family: 'Vibur', cursive;
+
+  a {
+    font-size: 2.5em;
+  }
+}
+

@@ -1,8 +1,13 @@
-<div class="row">
-  <div class="small-8 large-centered columns">
-    <%= link_to "My Turn to Add a Chair", new_chair_path, class:"button expand"%>
+<% if !params[:search] %>
+<div class="row chair" data-type="background" style="background-image: url(https://s3.amazonaws.com/fauteuil_production/uploads/many_chairs.jpg);">
+    <article class="chair-focus">
+        <div class="small-4 columns small-centered">
+        <%= link_to "My Turn to Add a Chair", new_chair_path, class:"button expand main-button"%>
+        </div>
+    </article>
   </div>
-</div>
+<% end %>
+
 <% @chairs.each do |chair| %>
   <div class="row chair" data-type="background" id="chair_<%=chair.id%>"style="background-image: url(<%= chair.picture_url %>);">
     <article class="chair-focus">
@@ -11,7 +16,6 @@
       <p class="review_rating" data-score="<%= chair.average_rating %>"></p>
     </article>
   </div>
-</div>
 <% end %>
 <% if !params[:search] %>
   <div class="row">
