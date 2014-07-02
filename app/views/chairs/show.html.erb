@@ -56,6 +56,14 @@
     <h2>Reviews</h2>
   </div>
 </div>
+<% if @reviews == [] %>
+  <div class="row panel">
+    <div class="medium-8 medium-centered columns">
+      <p> There are no reviews associated to this chair yet, be the first one!</p>
+    </div>
+  </div>
+<% end %>
+
 <% @reviews.each do |review| %>
   <div class="row panel">
     <div class="medium-10 columns">
@@ -65,7 +73,7 @@
         <div class="review_rating" data-score="<%= review.rating %>"></div>
       </p>
       <p>
-        <strong>Review:</strong>
+        <strong><%=review.user.username %> says:</strong>
         <%= review.body %>
       </p>
       <p>
