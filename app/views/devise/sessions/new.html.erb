@@ -1,20 +1,25 @@
-<div class="row">
-  <div class="large-4 columns">
-    <h2>Sign in</h2>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+<div style="margin-top: -6em; position: fixed; z-index: -99; width: 110%; height: 110%">
+  <iframe frameborder="0" height="100%" width="100%"
+    src="https://youtube.com/embed/FjEPkmJb2yI?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&playlist=FjEPkmJb2yI">
+  </iframe>
+</div>
 
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
 
-      <% if devise_mapping.rememberable? -%>
-      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-      <% end -%>
+<div class="large-4 large columns">
+  <h2>Sign in</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
 
-      <%= f.submit "Sign in" %>
-      <% end %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
 
-      <%= render "devise/shared/links" %>
-  </div>
+    <% if devise_mapping.rememberable? -%>
+    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+    <% end -%>
+
+    <%= f.submit "Sign in", class: "button" %>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
 </div>
