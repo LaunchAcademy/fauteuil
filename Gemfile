@@ -38,4 +38,5 @@ end
 
 gem 'font-awesome-sass'
 gem 'jquery-turbolinks'
+gem 'foundation-rails'
 

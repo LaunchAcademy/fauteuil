@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+<html>
+<head>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <title>Fauteuil</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-  </head>
-
-  <body>
-  <nav class="top-bar" data-topbar>
+<nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
       <h1><a href="/chairs">Fauteuil</a></h1>
@@ -27,10 +24,10 @@
       <li class="has-form">
         <%= form_tag chairs_path, method: 'get' do %>
           <div class="row collapse">
-            <div class="small-8 columns">
+            <div class="large-8 small-9 columns">
               <%= text_field_tag :search %>
             </div>
-            <div class="small-4 columns">
+            <div class="large-4 small-3 columns">
               <%= submit_tag "Search", class: "alert button expand" %>
             </div>
           </div>
@@ -60,7 +57,7 @@
     <p class="alert"><%= alert %></p>
   </div>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
-  </body>
+  <%= yield %>
+
+</body>
 </html>
