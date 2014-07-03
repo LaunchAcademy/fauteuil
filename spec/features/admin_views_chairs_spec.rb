@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "admin visits chairs page to delete review" do
+feature "admin visits chairs page to delete chair" do
 
   user = FactoryGirl.create(:user,role: "admin")
 
@@ -8,7 +8,7 @@ feature "admin visits chairs page to delete review" do
     chair = FactoryGirl.create(:chair)
 
     login_as(user)
-    visit "/chairs/#{chair.id}"
+    visit chair_path(chair.id)
     save_and_open_page
 
     click_button "Delete Chair"

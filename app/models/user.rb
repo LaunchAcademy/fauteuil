@@ -7,13 +7,16 @@ class User < ActiveRecord::Base
   has_many :chairs
   has_many :reviews
   has_many :votes
-  validates :username, presence: true, uniqueness: true
-  Validates :password, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates_presence_of :username
+  validates_presence_of :password
+  validates_presence_of :email
   validates :role, inclusion: {in: ["user", "admin"]}
+  validates_uniqueness_of :username
+  validates_uniqueness_of :email
+
 
   def admin?
-    if role == "admin"
+    role == "admin"
   end
 
 end

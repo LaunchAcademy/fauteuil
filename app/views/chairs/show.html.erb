@@ -88,8 +88,8 @@
   </div>
  <% end %>
 
-<% if current_user.admin? %>
-<%= button_to "Delete Chair", @chair, :method=>:delete, :class=>:destroy %></br></br>
-<% else %>
+<% if current_user && current_user.admin?%>
+<%= button_to "Delete Chair", @chair, method: 'delete', class: 'destroy' %>
+<% end %></br></br>
 <%= link_to "H O M E", chairs_path %>
-<% end %>
+
