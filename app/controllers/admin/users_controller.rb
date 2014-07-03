@@ -1,12 +1,11 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController
   before_action :authorize_user , only: [:index]
 
   def index
     @users = User.all
   end
 
-
- private
+  private
 
   def authorize_user
     unless user_signed_in? && current_user.admin?
