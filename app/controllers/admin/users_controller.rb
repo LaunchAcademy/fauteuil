@@ -12,5 +12,4 @@ class Admin::UsersController
       raise ActionController::RoutingError.new("Not Found")
     end
   end
-
 end
