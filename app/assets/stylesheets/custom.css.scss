@@ -7,11 +7,12 @@
   height: 1000px;
   margin: 0 auto;
   position: relative;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   max-width: 100% !important;
+  background-color: #002E5A;
 
   .chair-focus {
     margin-bottom: 1em;
@@ -96,7 +97,6 @@ article h2 a{
   -webkit-animation-name: slidein;
   position: absolute;
    margin-top: 38%;
-
 }
 
 @-webkit-keyframes slidein {
@@ -122,9 +122,20 @@ article h2 a{
 }
 
 video#bgvid {
-position: fixed; right: 0; bottom: 0;
-min-width: 100%; min-height: 100%;
-width: auto; height: auto; z-index: -100;
-background: url(polina.jpg) no-repeat;
-background-size: cover;
+  position: fixed;
+  right: 0; bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto; z-index: -100;
+  background: url(https://s3.amazonaws.com/fauteuil_production/cat_poster.jpg) no-repeat;
+  background-size: cover;
+}
+
+.show-row {
+  margin-top: 2rem;
+}
+
+.alert-box {
+  margin: 0 !important;
 }

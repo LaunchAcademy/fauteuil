@@ -4,7 +4,7 @@
   </iframe>
 </div> -->
 
-<video autoplay loop id="bgvid">
+<video autoplay loop muted poster="https://s3.amazonaws.com/fauteuil_production/cat_poster.jpg" id="bgvid">
 <source src="https://s3.amazonaws.com/fauteuil_production/cat_video.mp4" type="video/mp4">
 </video>
 
@@ -25,7 +25,6 @@
     <%= f.submit "Sign in", class: "button" %>
     <% end %>
 
-    <%= render "devise/shared/links" %>
 </div>
 
 <div class="row cat_row">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title>Fauteuil</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -42,17 +42,16 @@
     <!-- Left Nav Section -->
     <ul class="left">
       <% if user_signed_in? %>
-
-      <li><a href="#">Signed in as <%= current_user.email %></a></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+        <li><a href="#">Signed in as <%= current_user.email %></a></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 
       <% else %>
 
-      <li><%= link_to 'Register', new_user_registration_path %></li>
-      <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <li><%= link_to 'Register', new_user_registration_path %></li>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
 
       <% end %>
-      <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
     </ul>
   </section>
 </nav>

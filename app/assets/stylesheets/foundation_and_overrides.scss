@@ -62,7 +62,7 @@ $body-font-family: "Crete Round", Rockwell, "Courier Bold", Courier, Georgia, Ti
 // We use these as default colors throughout
 $primary-color: #004774;
 $secondary-color: #002E5A;
-$alert-color: #BEB2A4;
+$alert-color: lighten(#00578E, 15);
 $success-color: lighten(#00578E, 15);
 $warning-color: darken(#F2F2D6, 20);
 $info-color: #DAD4BA;
