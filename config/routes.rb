@@ -17,5 +17,9 @@ Fauteuil::Application.routes.draw do
     end
   end
 
+  namespace :admin do
+  resources :users, only: [:index]
+end
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 end
