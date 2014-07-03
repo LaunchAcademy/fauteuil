@@ -5,6 +5,11 @@
   </div>
 </div>
 <% @chairs.each do |chair| %>
+  <% if chair.picture_url == nil %>
+    <div class="row chair" data-type="background" id="chair_<%=chair.id%>">
+      <img src= "assets/default_chair.png" >
+    </div>
+  <% end %>
   <div class="row chair" data-type="background" id="chair_<%=chair.id%>"style="background-image: url(<%= chair.picture_url %>);">
     <article class="chair-focus">
       <h2><%= link_to chair.name, chair_path(chair.id)%></h2>

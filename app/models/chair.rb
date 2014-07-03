@@ -2,7 +2,7 @@ class Chair < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :reviews, dependent: :destroy
-  mount_uploader :picture, PictureUploader
+  mount_uploader :picture, PictureUploader, default_url: "lib/assets/default_chair.png"
 
   validates :name, uniqueness: true
   validates :name, presence: true
