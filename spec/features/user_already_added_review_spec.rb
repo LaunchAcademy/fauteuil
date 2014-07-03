@@ -27,9 +27,6 @@ feature 'user already reviewed a chair', %q(
     select '5', from: 'Rating'
     click_button 'Create Review'
 
-    expect(page).to have_content 'Review was successfully created.'
-    expect(page).to have_content 'Great chair'
-    expect(page).to have_content '5'
     expect(page).to have_content 'You already reviewed this chair buddy!'
  end
 
@@ -51,5 +48,5 @@ feature 'user already reviewed a chair', %q(
     expect(page).to have_content("Bean Bag")
     expect(page).to have_content('There are no reviews associated to
                                   this chair yet, be the first one!')
-  end
+ end
 end
