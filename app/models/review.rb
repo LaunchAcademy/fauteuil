@@ -29,5 +29,8 @@ class Review < ActiveRecord::Base
     chair.update_average_rating
   end
 
+  def generate_email
+    ReviewMailer.review_email(self).deliver
+  end
 end
 
