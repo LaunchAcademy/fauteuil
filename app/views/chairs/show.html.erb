@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row show-row">
   <div class="medium-4 columns">
-    <%= image_tag @chair.picture_url %>
+    <%= image_tag @chair.picture_url, class: "chair-pic" %>
   </div>
   <div class="medium-4 columns">
     <h2>
@@ -33,7 +33,7 @@
       <%= @chair.description %>
     </p>
   </div>
-  <div class="medium-4 columns panel callout">
+  <div class="medium-4 columns panel">
     <h3>Add Your Review</h3>
     <%= form_for([@chair, @review]) do |f| %>
       <% if @review.errors.any? %>
@@ -62,7 +62,7 @@
   </div>
 </div>
 <% @reviews.each do |review| %>
-  <div class="row panel">
+  <div class="row panel review">
     <div class="medium-10 columns">
       <p>
         <strong>Rating:</strong>
@@ -70,7 +70,7 @@
         <div class="review_rating" data-score="<%= review.rating %>"></div>
       </p>
       <p>
-        <strong>Review:</strong>
+        <strong>Review: </strong>
         <%= review.body %>
       </p>
       <p>
@@ -80,7 +80,7 @@
     <div class="medium-2 columns">
       <% if review.votes.where(user_id: current_user).blank? %>
         <span class="label secondary">
-          <%= pluralize(review.votes.where(value: 1).count, "upvote") %>
+          <%= pluralize(review.votes.where(value: 1).count, "upvote ") %>
         </span>
         <%= button_to 'Vote +1', upvote_review_path(review), method: :post, class: "button tiny" %>
         <span class="label secondary">
