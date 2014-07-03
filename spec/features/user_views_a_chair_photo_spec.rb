@@ -10,7 +10,9 @@ feature 'user visits chairs page to view a photo of a chair' do
     login_as(user)
     visit chairs_path
 
-    page.find("div_#{chair.id}")['style'].should == "background-image: url(#{chair.picture_url});"
+    save_and_open_page
+
+    page.find("#chair_#{chair.id}")['style'].should == "background-image: url(#{chair.picture_url});"
   end
 
 end
