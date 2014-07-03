@@ -1,5 +1,5 @@
 
-@import url(http://fonts.googleapis.com/css?family=Crete+Round);
+@import url(http://fonts.googleapis.com/css?family=Crete+Round:400,400italic);
 @import url(http://fonts.googleapis.com/css?family=Vibur);
 
 .chair {
@@ -138,4 +138,20 @@ video#bgvid {
 
 .alert-box {
   margin: 0 !important;
+}
+
+.welcome {
+  font-size: 2em;
+  font-style: italic;
+}
+
+.label {
+  min-width: 130px;
+  min-height: 2em;
+  font-size: 1.2rem;
+}
+
+.review .tiny {
+  min-width: 130px;
+  font-size: 1rem;
 }

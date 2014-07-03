@@ -9,7 +9,7 @@ feature 'guest sigout' do
 
     visit chairs_path
 
-    click_on 'Sign out'
+    click_on 'Sign Out'
 
 
     expect(page).to have_content('You need to sign in or sign up before continuing')
