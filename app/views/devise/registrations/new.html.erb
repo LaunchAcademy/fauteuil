@@ -1,36 +1,40 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="large-4 columns">
+    <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <%= devise_error_messages! %>
+      <%= devise_error_messages! %>
 
-  <p>
-  <%= f.label :username %>
-  <%= f.text_field :username%>
-  </p>
+      <p>
+      <%= f.label :username %>
+      <%= f.text_field :username%>
+      </p>
 
-  <p>
-  <%= f.label :email %>
-  <%= f.email_field :email, autofocus: true %>
-  </p>
+      <p>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
+      </p>
 
-  <p>
-  <%= f.label :password %>
-  <%= f.password_field :password, autocomplete: "off" %>
-  </p>
+      <p>
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off" %>
+      </p>
 
-  <p>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </p></br>
+      <p>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </p></br>
 
-  <p>Upload a Image of yourself</p>
-  <%= f.label :avatar %>
-  <%= f.file_field :avatar %></br>
-  <%= f.hidden_field :avatar_cache %>
-  <%= image_tag @user.avatar_url %>
+      <p>Upload a Image of yourself</p>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %></br>
+      <%= f.hidden_field :avatar_cache %>
+      <%= image_tag @user.avatar_url %>
 
-  <%= f.submit "Sign up" %>
-<% end %>
+      <%= f.submit "Sign up", class: "button" %>
+    <% end %>
 
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

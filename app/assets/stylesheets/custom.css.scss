@@ -1,13 +1,18 @@
 
+@import url(http://fonts.googleapis.com/css?family=Crete+Round:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Vibur);
+
 .chair {
   min-height: 1000px;
   height: 1000px;
   margin: 0 auto;
   position: relative;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  max-width: 100% !important;
+  background-color: #002E5A;
 
   .chair-focus {
     margin-bottom: 1em;
@@ -15,9 +20,138 @@
     position: absolute;
     text-align: right;
     width: 100%;
+    padding: 2em;
   }
 }
 
 .pagination-centered {
   padding-top: 5em;
+}
+
+.top-bar input {
+  margin-top: 1.3em;
+}
+
+.top-bar input[type="text"] {
+  height: auto !important;
+  padding-top: .35rem !important;
+  padding-bottom: .35rem !important;
+  background-color: lighten(#004774,5);
+  border-color: lighten(#004774,5);
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.top-bar input[type="submit"] {
+  background-color: #F2F2D6;
+  color: #004774;
+  font-size: 1.2rem;
+}
+
+.top-bar h1 a {
+  font-size: 2rem;
+}
+
+a {
+  color: #F2F2D6;
+}
+
+a:hover {
+  color: darken(#004774, 10)
+}
+
+article h2 a{
+  color: #004774;
+}
+
+.fa-star, .fa-star-o, .fa-star-half-o {
+  color: #FFB74E;
+  font-size: 1.5rem;
+}
+
+
+.panel {
+  .fa-star, .fa-star-o, .fa-star-half-o {
+    color: darken(#FFB74E,10);
+    font-size: 1rem;
+  }
+}
+
+.button {
+  background-color: #FF9900;
+  font-size: 1.5rem;
+}
+
+.top-bar h1 {
+  font-family: 'Vibur', cursive;
+
+  a {
+    font-size: 2.5em;
+  }
+}
+
+#cat_rating {
+  animation-duration: 3s;
+  animation-name: slidein;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-name: slidein;
+  position: absolute;
+   margin-top: 38%;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    visibility: hidden;
+    margin-left: 80%;
+  }
+  to {
+    visibility: visible;
+    margin-left: 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    visibility: hidden;
+    margin-left: 80%;
+  }
+  to {
+    visibility: visible;
+    margin-left: 0;
+  }
+}
+
+video#bgvid {
+  position: fixed;
+  right: 0; bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto; z-index: -100;
+  background: url(https://s3.amazonaws.com/fauteuil_production/cat_poster.jpg) no-repeat;
+  background-size: cover;
+}
+
+.show-row {
+  margin-top: 2rem;
+}
+
+.alert-box {
+  margin: 0 !important;
+}
+
+.welcome {
+  font-size: 2em;
+  font-style: italic;
+}
+
+.label {
+  min-width: 130px;
+  min-height: 2em;
+  font-size: 1.2rem;
+}
+
+.review .tiny {
+  min-width: 130px;
+  font-size: 1rem;
 }

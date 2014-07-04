@@ -41,5 +41,6 @@ end
 
 gem 'font-awesome-sass'
 gem 'jquery-turbolinks'
+gem 'foundation-rails'
 
 gem 'rails_12factor', group: :production
