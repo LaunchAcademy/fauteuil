@@ -44,3 +44,4 @@ gem 'jquery-turbolinks'
 gem 'foundation-rails'
 
 gem 'rails_12factor', group: :production
+gem 'mandrill-api'
