@@ -1,4 +1,8 @@
+#Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
 
+User.delete_all
+Review.delete_all
+Chair.delete_all
 
 #------------------------RANDOM USERS----------------------#
 
@@ -13,7 +17,7 @@ end
 40.times do |i|
   User.create(username: Faker::Name.last_name+"#{i}",
               email: Faker::Internet.safe_email,
-              encrypted_password: "hellothi8173113rsfa")
+              encrypted_password: "hellothisareallylongstring2178t8173113rsfa")
 
 end
 
@@ -125,7 +129,7 @@ end
 
 Chair.all.each_with_index do |chair, i|
   chair.picture.store!(File.open(File.join(Rails.root,
-                     "/chair_images/#{chair_photos[i]}")))
+                     "/chair_images/#{chair_photos[i+1]}")))
   chair.save!
 end
 
