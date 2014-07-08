@@ -1,41 +1,48 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row">
+  <div class="large-4 columns">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
+      <%= devise_error_messages! %>
 
-  <%= f.label :username %><br />
-  <%= f.text_field :username%>
-
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-  <% end %>
+          <%= f.label :username %>
+          <%= f.text_field :username%>
 
 
-  <%= f.label :password %> <i>(Leave Blank if you do not want to change password)</i><br />
-  <%= f.password_field :password, autocomplete: "on" %>
-
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "on" %>
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true %>
 
 
-  <p>Change Image of yourself</p>
-
-  <%= f.label :avatar %>
-  <%= f.file_field :avatar %>
-  <%= f.hidden_field :avatar_cache %>
-  <%= image_tag @user.avatar_url %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+      <% end %>
 
 
-  <%= f.submit "Update" %>
-  <% end %>
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "on" %>
 
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "on" %>
 
-  <h3>Cancel my account</h3>
+          <p>Change Avatar:</p>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+          <%= image_tag @user.avatar_url %>
 
-  <%= link_to "Back", :back %>
+          <%= f.submit "Update", class: "button" %>
+
+    <% end %>
+
+    <h3>Cancel my account</h3>
+
+    <p>Unhappy?</p>
+
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button" %>
+
+    <%= link_to "Back", :back %>
+  </div>
+</div>
+

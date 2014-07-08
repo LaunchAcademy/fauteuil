@@ -19,8 +19,6 @@ gem 'carrierwave'
 gem 'fog'
 gem 'kaminari'
 
-
-
 group :development, :test do
   gem 'dotenv-rails'
   gem 'shoulda-matchers'
@@ -34,8 +32,12 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'email_spec'
 end
 
 gem 'font-awesome-sass'
 gem 'jquery-turbolinks'
+gem 'foundation-rails'
 
+gem 'rails_12factor', group: :production
+gem 'mandrill-api'

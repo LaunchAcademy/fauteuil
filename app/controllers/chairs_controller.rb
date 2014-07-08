@@ -11,7 +11,7 @@ class ChairsController < ApplicationController
   end
 
   def show
-    @chair = Chair.includes(:category).find(params[:id])
+    @chair = Chair.includes(:category, :user).find(params[:id])
     @review = Review.new
     @reviews = @chair.reviews.by_rank
 
@@ -30,6 +30,7 @@ class ChairsController < ApplicationController
 
   def create
     @chair = Chair.new(chair_params)
+    @chair.user_id = current_user.id
 
     if @chair.save
       redirect_to @chair, notice: "Chair was successfully created."
