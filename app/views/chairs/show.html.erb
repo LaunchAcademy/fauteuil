@@ -34,25 +34,29 @@
     </p>
   </div>
   <div class="medium-4 columns panel">
-    <h3>Add Your Review</h3>
-    <%= form_for([@chair, @review]) do |f| %>
-      <% if @review.errors.any? %>
-        <p id="error_explanation">
-          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
-          <ul>
-            <% @review.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </p>
-      <% end %>
-      <%= f.label :rating %>
-      <%= f.range_field(:rating, in: 0..5.0, step: 0.5, onchange: "outputUpdate(value)", id: "slider", value: "0") %>
-      <output for="review_rating" id="rating_show">0</output>
-      <div class="rating"></div>
-      <%= f.label(:body, "Review") %>
-      <%= f.text_area :body %>
-      <%= f.submit(class: "button") %>
+    <% if !@already_wrote %>
+      <h3>Add Your Review</h3>
+      <%= form_for([@chair, @review]) do |f| %>
+        <% if @review.errors.any? %>
+          <p id="error_explanation">
+            <h2><%= pluralize(@review.errors.count, "error") %> prohibited this article from being saved:</h2>
+            <ul>
+              <% @review.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </p>
+        <% end %>
+        <%= f.label :rating %>
+        <%= f.range_field(:rating, in: 0..5.0, step: 0.5, onchange: "outputUpdate(value)", id: "slider", value: "0") %>
+        <output for="review_rating" id="rating_show">0</output>
+        <div class="rating"></div>
+        <%= f.label(:body, "Review") %>
+        <%= f.text_area :body %>
+        <%= f.submit(class: "button") %>
+     <% end %>
+    <% else %>
+      <h3> You already reviewed this chair buddy! </h3>
     <% end %>
   </div>
 </div>
@@ -61,6 +65,14 @@
     <h2>Reviews</h2>
   </div>
 </div>
+<% if @reviews == [] %>
+  <div class="row panel">
+    <div class="medium-7 medium-centered columns">
+      <p> There are no reviews associated to this chair yet, be the first one!</p>
+    </div>
+  </div>
+<% end %>
+
 <% @reviews.each do |review| %>
   <div class="row panel review">
     <div class="medium-10 columns">
@@ -70,7 +82,7 @@
         <div class="review_rating" data-score="<%= review.rating %>"></div>
       </p>
       <p>
-        <strong>Review: </strong>
+        <strong><%=review.user.username %> says:</strong>
         <%= review.body %>
       </p>
       <p>
