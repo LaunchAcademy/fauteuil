@@ -1,5 +1,5 @@
-class Admin::UsersController
-  before_action :authorize_user , only: [:index]
+class Admin::UsersController < ApplicationController
+  before_action :authorize_user, only: [:index]
 
   def index
     @users = User.all
