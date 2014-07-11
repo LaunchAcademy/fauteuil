@@ -38,16 +38,6 @@ Acceptance Criteria:
 
     expect(Review.count).to eq(prev_count + 1)
 
-    # upon registering, a confirmation email should be delivered,
-    # so ActionMailer::Base.deliveries should include the email:
-    expect(ActionMailer::Base.deliveries.size).to eql(1)
-
-    # the email we just sent should have the proper subject and recipient:
-    last_email = ActionMailer::Base.deliveries.last
-    expect(last_email).to have_subject('Someone Just Reviewed Your Chair')
-    expect(last_email).to have_content('Great chair')
-    review = Review.last
-    expect(last_email).to deliver_to(review.chair.user.email)
 
   end
 

@@ -9,7 +9,6 @@ feature "admin visits chairs page to delete chair" do
 
     login_as(user)
     visit chair_path(chair.id)
-    save_and_open_page
 
     click_button "Delete Chair"
 
