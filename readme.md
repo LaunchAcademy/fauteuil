@@ -2,10 +2,11 @@ Chair-Review
 ============
 [![Build Status](https://travis-ci.org/LaunchAcademy/fauteuil.svg?branch=master)](https://travis-ci.org/LaunchAcademy/fauteuil) [![Code Climate](https://codeclimate.com/github/LaunchAcademy/fauteuil.png)](https://codeclimate.com/github/LaunchAcademy/fauteuil) [![Coverage Status](https://coveralls.io/repos/LaunchAcademy/fauteuil/badge.png)](https://coveralls.io/r/LaunchAcademy/fauteuil)
 
-_**Group Project  ~ Kevin Jain ~ Rachael Serur ~ Patrick Arthur ~ David Pointeau ~**_
+_**Rachael Serur ~ Patrick Arthur ~ David Pointeau**_
 
+Visit the website at: _ fauteuil.herokuapp.com _
 
-### USER STORIES
+### Overview of Project
 
 ---
 
