@@ -4,7 +4,7 @@ Fauteuil (Chair-Review Website)
 
 _**Rachael Serur ~ Patrick Arthur ~ David Pointeau**_
 
-Visit the website at:  fauteuil.herokuapp.com 
+Visit the website at:  www.fauteuil.herokuapp.com 
 
 ### Overview of Project
 
