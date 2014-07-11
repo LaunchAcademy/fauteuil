@@ -10,7 +10,7 @@ Visit the website at:  http://fauteuil.herokuapp.com/
 
 ---
 
-**Fauteuil is a unique website designed for people who want to review all types of chairs! The idea behind this group project was to explore group collaboration using github with the end goal of creating a fully functional review website. The 'chair' idea is not what's most important (eventhough its a great idea). Our endgoal was to explore the various possiblities offered by Ruby on Rails in creating a web app.**
+**Fauteuil is a unique website designed for people who want to review all types of chairs! The idea behind this group project was to explore group collaboration using github with the end goal of creating a fully functional review website. The 'chair' idea is not what's most important (even though its a great idea). Our endgoal was to explore the various possiblities offered by Ruby on Rails in creating a web app.**
 
 **Note: The following demo is a bit laggy because its a gif. Visit the website!**
 ![Demo](/fauteuil_var/fauteuil.gif)
