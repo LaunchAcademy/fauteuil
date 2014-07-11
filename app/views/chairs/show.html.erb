@@ -114,4 +114,9 @@
       <% end %>
     </div>
   </div>
+ <% end %>
+
+<% if current_user && current_user.admin?%>
+<%= button_to "Delete Chair", @chair, method: 'delete', class: 'destroy' %>
 <% end %>
+

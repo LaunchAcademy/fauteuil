@@ -42,10 +42,11 @@
     <!-- Left Nav Section -->
     <ul class="left">
       <% if user_signed_in? %>
-        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-        <li><a href="#">Signed in as <%= current_user.email %></a></li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-
+      <li><a href="#">Signed in as <%= current_user.email %></a></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+      <% if current_user && current_user.admin?%>
+      <li><%= link_to 'Admin Section', chairs_path %></li>
+      <% end %>
       <% else %>
 
         <li><%= link_to 'Register', new_user_registration_path %></li>
