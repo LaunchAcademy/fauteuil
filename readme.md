@@ -10,7 +10,7 @@ Visit the website at:  www.fauteuil.herokuapp.com
 
 ---
 
-**Fauteuil is a unique website designed for people who want to review all types of chair. The idea behind this group project was to explore group collaboration using github with the end goal of creating a fully functional review website. The 'chair' idea was not the endgoal itself. Our endgoal was to explore the various possiblities offered by Ruby on Rails in creating a web app.**
+**Fauteuil is a unique website designed for people who want to review all types of chairs! The idea behind this group project was to explore group collaboration using github with the end goal of creating a fully functional review website. The 'chair' idea is not what's most important (eventhough its a great idea). Our endgoal was to explore the various possiblities offered by Ruby on Rails in creating a web app.**
 
 ### Interesting features
 
@@ -23,10 +23,10 @@ Visit the website at:  www.fauteuil.herokuapp.com
 - Users can search for a specific chair
 - Users can add their own chair, with a picture optionally
 - Users can add a review associated to a specific chair
-      => One of the interesting features of this part was the implementation of the star rating system. 
+      - One of the interesting features of this part was the implementation of the star rating system. 
          The user can associate a rating between 1 and 5 (0.5 increments) using a slider, and according to that value
-         we display the equivalent number of stars (using javascript). Implementing this part was a thinker but lots           of fun!
-      => Another interesting feature of our review system is that every suer can upvote or downvote a reviews 
+         we display the equivalent number of stars (using javascript and jquery). Implementing this part was a thinker          but lots of fun!
+      - Another interesting feature of our review system is that every user can upvote or downvote a reviews 
          (just like stackoverflow)
 - Mailer: Users who create a chair recieve a mail everytime somebody reviews their chair
 - Pagination is implemented
@@ -34,7 +34,7 @@ Visit the website at:  www.fauteuil.herokuapp.com
   them in order to delete posts and verify malicious user input. 
 - Security: implemented basic security to avoid malicious user input
 - STYLING: We spent alot of time on styling:
-      => Landing page's background is a looping video
+      - Landing page's background is a looping video
       => Dynamic elements are present
       => parallax scrolling for the main page
 
