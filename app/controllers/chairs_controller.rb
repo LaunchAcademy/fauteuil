@@ -1,4 +1,6 @@
 class ChairsController < ApplicationController
+  before_action :authorize_user, only: [:edit]
+
   def index
     @chairs = Chair.order(average_rating: :desc).page(params[:page]).per(3)
 
@@ -39,9 +41,23 @@ class ChairsController < ApplicationController
     end
   end
 
+  def destroy
+    @chair = Chair.find(params[:id])
+    if @chair.present?
+      @chair.destroy
+    end
+    redirect_to chairs_path, notice: "Chair was deleted"
+  end
+
   private
 
   def chair_params
     params.require(:chair).permit(:name, :description, :manufacturer, :location, :picture, :category_id, :user_id)
+  end
+
+  def authorize_user
+    unless user_signed_in? && current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end
