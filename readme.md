@@ -1,10 +1,10 @@
-Chair-Review
+Fauteuil (Chair-Review Website)
 ============
 [![Build Status](https://travis-ci.org/LaunchAcademy/fauteuil.svg?branch=master)](https://travis-ci.org/LaunchAcademy/fauteuil) [![Code Climate](https://codeclimate.com/github/LaunchAcademy/fauteuil.png)](https://codeclimate.com/github/LaunchAcademy/fauteuil) [![Coverage Status](https://coveralls.io/repos/LaunchAcademy/fauteuil/badge.png)](https://coveralls.io/r/LaunchAcademy/fauteuil)
 
 _**Rachael Serur ~ Patrick Arthur ~ David Pointeau**_
 
-Visit the website at: _ fauteuil.herokuapp.com _
+Visit the website at:  fauteuil.herokuapp.com 
 
 ### Overview of Project
 
