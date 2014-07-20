@@ -113,9 +113,10 @@
         </p>
       <% end %>
     </div>
-  </div>
+      <%= button_to "Delete Review", chair_review_path(@chair.id, review.id), class: "button tiny", method: :delete %>
  <% end %>
 
+  </div>
 <% if current_user && current_user.admin?%>
 <%= button_to "Delete Chair", @chair, method: 'delete', class: 'destroy' %>
 <% end %>

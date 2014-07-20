@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @chair = Chair.find(params[:id])
+    @chair = Chair.find(params[:chair_id])
     if @review.present?
       @review.destroy
     end
