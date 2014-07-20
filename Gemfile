@@ -33,7 +33,6 @@ end
 group :test do
   gem 'coveralls', require: false
   gem 'email_spec'
-  gem 'simplecov', require: false
 end
 
 gem 'font-awesome-sass'

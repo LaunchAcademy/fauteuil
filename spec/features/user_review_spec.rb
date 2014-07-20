@@ -39,7 +39,7 @@ Acceptance Criteria:
 
   end
 
-scenario 'user deletes review' do
+  scenario 'user deletes review' do
 
     chair = FactoryGirl.create(:chair)
     user = FactoryGirl.create(:user)
@@ -58,6 +58,19 @@ scenario 'user deletes review' do
     click_button 'Delete Review'
 
     expect(page).to have_content 'Review was deleted'
+  end
+
+  scenario "Average rating is correctly displayed" do
+
+    user = FactoryGirl.create(:user)
+    chair = FactoryGirl.create(:chair, id: 0)
+    review1 = FactoryGirl.create(:review, rating: 2.0)
+    review2 = FactoryGirl.create(:review, rating: 4.0)
+
+    login_as(user)
+    visit chair_path(chair.id)
+
+    expect(page).to have_content('Average Rating: 3.0')
   end
 
 end

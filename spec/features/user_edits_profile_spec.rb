@@ -31,11 +31,13 @@ feature 'user edits profile' do
 
     fill_in 'Username', with: 'BobDob'
     fill_in 'Email', with: 'bob@example.com'
-    fill_in 'Password', with: ''
 
     click_button 'Update'
 
     expect(page).to have_content("can't be blank")
+    find_field('Password').value.should be_nil
+    find_field('Password confirmation').value.should be_nil
+
   end
 
   scenario 'does not confirm password' do
@@ -53,6 +55,9 @@ feature 'user edits profile' do
     click_button 'Update'
 
     expect(page).to have_content("Password confirmation doesn't match Password")
+    find_field('Password').value.should be_nil
+    find_field('Password confirmation').value.should be_nil
+
   end
 
 end

@@ -16,12 +16,10 @@ class ReviewsController < ApplicationController
     if @review.save
 
       @review.generate_email
-      # Automatically add +1 from review author
+
       @review.votes.create(value: 1, user_id: current_user.id)
 
       redirect_to @chair, notice: 'Review was successfully created.'
-    else
-      render :new
     end
   end
 
