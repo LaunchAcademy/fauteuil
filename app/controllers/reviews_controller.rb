@@ -16,18 +16,16 @@ class ReviewsController < ApplicationController
     if @review.save
 
       @review.generate_email
-      # Automatically add +1 from review author
+
       @review.votes.create(value: 1, user_id: current_user.id)
 
       redirect_to @chair, notice: 'Review was successfully created.'
-    else
-      render :new
     end
   end
 
   def destroy
     @review = Review.find(params[:id])
-    @chair = Chair.find(params[:id])
+    @chair = Chair.find(params[:chair_id])
     if @review.present?
       @review.destroy
     end

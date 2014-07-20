@@ -2,12 +2,14 @@ require "rails_helper"
 
 feature "admin visits chairs page to delete chair" do
 
-  user = FactoryGirl.create(:user, role: "admin")
-
   scenario "Admin visits chair page" do
+
+    user = FactoryGirl.create(:user, role: "admin")
+
     chair = FactoryGirl.create(:chair)
 
     login_as(user)
+
     visit chair_path(chair.id)
 
     click_button "Delete Chair"

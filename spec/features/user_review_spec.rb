@@ -27,7 +27,6 @@ Acceptance Criteria:
     login_as(user)
     visit new_chair_review_path(chair.id)
 
-
     fill_in 'Body', with: 'Great chair'
     select '5', from: 'Rating'
     click_button 'Create Review'
@@ -38,7 +37,40 @@ Acceptance Criteria:
 
     expect(Review.count).to eq(prev_count + 1)
 
+  end
 
+  scenario 'user deletes review' do
+
+    chair = FactoryGirl.create(:chair)
+    user = FactoryGirl.create(:user)
+
+    login_as(user)
+    visit new_chair_review_path(chair.id)
+
+    fill_in 'Body', with: 'Great chair'
+    select '5', from: 'Rating'
+    click_button 'Create Review'
+
+    expect(page).to have_content 'Review was successfully created.'
+    expect(page).to have_content 'Great chair'
+    expect(page).to have_content '5'
+
+    click_button 'Delete Review'
+
+    expect(page).to have_content 'Review was deleted'
+  end
+
+  scenario "Average rating is correctly displayed" do
+
+    user = FactoryGirl.create(:user)
+    chair = FactoryGirl.create(:chair, id: 0)
+    review1 = FactoryGirl.create(:review, rating: 2.0)
+    review2 = FactoryGirl.create(:review, rating: 4.0)
+
+    login_as(user)
+    visit chair_path(chair.id)
+
+    expect(page).to have_content('Average Rating: 3.0')
   end
 
 end

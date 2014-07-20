@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   validates :role, inclusion: {in: ["user", "admin"]}
   validates_uniqueness_of :username
   validates_uniqueness_of :email
+  validates_integrity_of :avatar
+  validates_processing_of :avatar
 
   def admin?
     role == "admin"

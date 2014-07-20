@@ -2,9 +2,9 @@ require "rails_helper"
 
 feature "admin wants to see list of users" do
 
-  user = FactoryGirl.create(:user)
-
   scenario "unregistered user attempts view adminpage" do
+
+    user = FactoryGirl.create(:user)
 
     login_as(user)
 
